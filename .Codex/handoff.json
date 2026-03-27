@@ -1,6 +1,6 @@
 {
   "world": "BuildWorld",
-  "cycle": 3,
+  "cycle": 4,
   "updated": "2026-03-27",
 
   "shipped": [
@@ -12,7 +12,6 @@
       "location": "products/prompt-lock/",
       "pypi_name": "prompt-lock",
       "pypi_status": "READY_TO_PUBLISH — needs PyPI account + OIDC trusted publishing setup",
-      "github_action": "action.yml (ready)",
       "tests": "34/34 passing",
       "key_differentiator": "Judge calibration — verifies LLM judge agrees with humans before trusting it as a CI gate.",
       "bibleworld_pattern": "PAT-034 (Nehemiah 4:13 — Guards at the gaps)",
@@ -41,24 +40,39 @@
       "status": "CODE_COMPLETE",
       "location": "products/drift-guard/",
       "pypi_name": "drift-guard",
-      "pypi_status": "READY_TO_PUBLISH — needs PyPI account + OIDC trusted publishing setup",
+      "pypi_status": "READY_TO_PUBLISH",
       "tests": "41/41 passing",
-      "key_differentiator": "The only open-source tool that verifies whether a PR's code changes fulfill its stated intent — pre-merge, with a CI gate, for any git repo. CodeRabbit/PR-Agent do code review; drift-guard does intent verification.",
+      "key_differentiator": "The only open-source tool that verifies whether a PR's code changes fulfill its stated intent — pre-merge, with a CI gate, for any git repo.",
       "bibleworld_pattern": "PAT-036 (Romans 7:7 — The Law makes violations visible)",
       "pivot_score": 8.60,
-      "competitive_status": "GREEN — 5 live searches March 2026 confirmed no direct competitor. 'drift-guard' (hyphenated) name available on PyPI. driftguard (no hyphen) is ML data drift detection — completely different domain.",
-      "model_used": "claude-haiku-4-5-20251001 (default, overrideable via DRIFT_GUARD_MODEL)",
-      "files_written": [
-        "products/drift-guard/drift_guard/__init__.py",
-        "products/drift-guard/tests/__init__.py",
-        "products/drift-guard/tests/test_drift_guard.py",
-        "products/drift-guard/pyproject.toml",
-        "products/drift-guard/README.md",
-        "products/drift-guard/LICENSE",
-        "products/drift-guard/.gitignore",
-        "products/drift-guard/.github/workflows/ci.yml"
-      ],
+      "competitive_status": "GREEN — 5 live searches March 2026 confirmed no direct competitor.",
       "next_step": "Push to GitHub repo buildworld-ai/drift-guard, publish to PyPI, launch HN + Dev.to"
+    },
+    {
+      "product": "spec-drift",
+      "version": "0.1.0",
+      "description": "Semantic specification drift detector for LLM outputs — monitors continuous semantic compliance with declared behavioral specifications, even when structural validation (Pydantic) passes.",
+      "status": "CODE_COMPLETE",
+      "location": "products/spec-drift/",
+      "pypi_name": "spec-drift",
+      "pypi_status": "READY_TO_PUBLISH — needs PyPI account + OIDC trusted publishing setup",
+      "tests": "67/67 passing",
+      "key_differentiator": "The first open-source tool that continuously monitors whether LLM outputs remain semantically compliant with a declared behavioral specification — not just structural validation (Pydantic) and not just batch evaluation (DeepEval).",
+      "bibleworld_pattern": "PAT-037 (Leviticus 10:1-3 — The Authorized Fire: structural compliance ≠ semantic compliance)",
+      "pivot_score": 8.63,
+      "competitive_status": "GREEN — BibleWorld Cycle 012 confirmed. No open-source competitor. Evidently/NannyML detect statistical data drift (different domain). DeepEval is batch eval (not continuous). Pydantic is structural (misses semantic drift).",
+      "model_used": "No model dependency — pure Python + Pydantic v2. Works with any LLM provider.",
+      "files_written": [
+        "products/spec-drift/spec_drift/__init__.py",
+        "products/spec-drift/tests/__init__.py",
+        "products/spec-drift/tests/test_spec_drift.py",
+        "products/spec-drift/pyproject.toml",
+        "products/spec-drift/README.md",
+        "products/spec-drift/LICENSE",
+        "products/spec-drift/.gitignore",
+        "products/spec-drift/.github/workflows/ci.yml"
+      ],
+      "next_step": "Push to GitHub repo buildworld-ai/spec-drift, publish to PyPI, launch HN + Dev.to"
     }
   ],
 
@@ -66,36 +80,37 @@
     "mrr_usd": 0,
     "products_live": 0,
     "products_generating_revenue": 0,
-    "note": "Three tools MIT OSS — code-complete, PyPI-ready. Revenue path: enterprise support + hosted dashboard (v0.3+). Traction gate: 100 GitHub stars + 100 PyPI installs per tool.",
-    "law_2_trigger": "If all three tools under 100 installs after 3 weeks of launch, pivot to GrantPilot (direct $29-499/month revenue, 2-3 week MVP).",
+    "note": "Four tools MIT OSS — code-complete, PyPI-ready. Revenue path: enterprise support + hosted dashboard (v0.3+). Traction gate: 100 GitHub stars + 100 PyPI installs per tool.",
+    "law_2_trigger": "If all four tools under 100 installs after 3 weeks of launch, pivot to GrantPilot. BUT: Grant Wizard launched March 2026 as Africa's first AI grant writing platform — GrantPilot competitive moat narrowed. Re-evaluate at traction gate.",
     "blocker": "PyPI account + GitHub repos needed — manual step outside build loop."
   },
 
   "currently_building": {
-    "product": "DONE — drift-guard v0.1.0 complete",
-    "status": "ALL THREE TOOLS CODE-COMPLETE — waiting for PyPI/GitHub deploy",
+    "product": "DONE — spec-drift v0.1.0 complete",
+    "status": "ALL FOUR TOOLS CODE-COMPLETE — waiting for PyPI/GitHub deploy",
     "stack": "Python + PyPI + GitHub Actions",
-    "next_build": "cot-coherence v0.1.0 (BibleWorld BUILD FOURTH, score 8.00) OR pivot to GrantPilot"
+    "next_build": "cot-coherence v0.1.0 (BibleWorld BUILD FIFTH, score 8.00) OR pivot to revenue product"
   },
 
-  "cycle_3_summary": {
+  "cycle_4_summary": {
     "completed": "2026-03-27",
-    "product": "drift-guard v0.1.0",
-    "tests": "41/41 passing",
-    "live_searches_run": 3,
-    "competitive_verdict": "GREEN — PR semantic intent verification space is unoccupied. CodeRabbit/PR-Agent do code review, not intent verification. 'drift-guard' PyPI name available.",
-    "source_prototype": "BibleWorld Cycle 011 — 450+ lines prototype in .Codex/builds/drift-guard/",
-    "buildworld_additions": "Updated to claude-haiku-4-5-20251001 (latest), hatchling build backend (BuildWorld standard), 7 additional tests (41 total vs 30 in prototype), Python 3.10+ minimum"
+    "product": "spec-drift v0.1.0",
+    "tests": "67/67 passing",
+    "live_searches_run": 4,
+    "competitive_verdict": "GREEN — semantic LLM spec compliance monitoring unoccupied. No pip-installable competitor confirmed in 4 fresh searches March 2026. spec-drift name available on PyPI.",
+    "grantpilot_verdict": "PAUSED — Grant Wizard launched March 12 2026 as Africa's first AI grant writing platform (Nigeria-based, 1,100+ alumni, $30M secured). Direct competitor. Will not build GrantPilot without further competitive analysis.",
+    "source_prototype": "BibleWorld Cycle 012 — 240+ lines prototype in .Codex/builds/spec-drift/",
+    "buildworld_additions": "Production SQLite connection management, full CLI (report + ci commands + JSON output), 67 tests (vs 0 in prototype), Python 3.10+ minimum, hatchling build backend"
   },
 
   "competitive_intelligence": {
-    "pr_semantic_intent_verification": "GREEN — No direct competitor confirmed in 3 fresh searches March 2026. semantic-prs checks commit message FORMAT (conventional commits) not intent. CodeRabbit/PR-Agent suggest improvements, do not verify intent.",
-    "llm_behavioral_contracts": "GREEN — confirmed no pip-installable competitor",
-    "prompt_regression_testing": "GREEN — prompt-lock still unoccupied as standalone pip package",
-    "cot_coherence_detection": "GREEN — BibleWorld confirmed, no competitor",
-    "coderabbit_pricing": "$24-30/dev/month. Qodo/PR-Agent $19-30/dev/month. drift-guard is free MIT OSS — massive GTM wedge.",
-    "driftguard_no_hyphen": "ML data drift detection library (v0.1.6, GitHub: kiplangatkorir/driftguard) — completely different domain, no conflict",
-    "litellm_supply_chain_note": "LiteLLM versions 1.82.7-1.82.8 compromised March 24 2026. Used direct Anthropic SDK in drift-guard — correct call."
+    "spec_semantic_drift_monitoring": "GREEN — No direct competitor. Evidently/NannyML = statistical feature drift (different domain). DeepEval = batch eval not continuous monitoring. Pydantic = structural only.",
+    "pr_semantic_intent_verification": "GREEN — drift-guard confirmed. Salesforce building internal tool (6-12 month window).",
+    "llm_behavioral_contracts": "GREEN — llm-contract confirmed.",
+    "prompt_regression_testing": "RED — Promptfoo (OpenAI), DeepEval, LLMQ, Latitude all confirmed.",
+    "cot_coherence_detection": "GREEN — No pip-installable competitor. 3 academic papers Feb-Mar 2026 confirm the gap (Reasoning Horizon at 70-85% chain length). 3-6 month window.",
+    "grant_writing_ai_africa": "RED — Grant Wizard (Nigeria, March 2026) is direct competitor to GrantPilot. Multiple global competitors: FundRobin, Instrumentl, Granted AI, Grantable. GrantPilot competitive moat requires differentiation analysis.",
+    "reasoning_horizon_paper": "Feb 2026 arXiv: 'Limited Reasoning Space' — confirms CoT degradation beyond critical chain length. No tool built. cot-coherence window intact."
   },
 
   "tech_decisions": {
@@ -114,8 +129,14 @@
       "package_name": "drift-guard",
       "llm_abstraction": "Direct Anthropic SDK (avoided LiteLLM due to supply chain attack March 2026)",
       "storage": "SQLite — zero dependencies, self-hosted",
-      "default_model": "claude-haiku-4-5-20251001 (fast, cheap, binary verdicts)",
-      "diff_handling": "Truncates at 8000 chars with notice — KU-013 (large diff handling) acknowledged, v0.2 fix"
+      "default_model": "claude-haiku-4-5-20251001 (fast, cheap, binary verdicts)"
+    },
+    "spec_drift": {
+      "package_name": "spec-drift",
+      "llm_abstraction": "NONE — pure Python + Pydantic v2. Zero LLM API dependency for core functionality.",
+      "storage": "SQLite — zero dependencies, self-hosted, in-memory option for testing",
+      "dependencies": "pydantic>=2.0 only (runtime). click/rich NOT added — argparse used to keep deps minimal.",
+      "connection_management": "Persistent in-memory connection for :memory: databases; fresh connection per operation for file DBs"
     },
     "shared": {
       "build_backend": "hatchling (2026 standard per uv ecosystem)",
@@ -125,66 +146,60 @@
   },
 
   "distribution_plan": {
-    "prompt_lock": {
+    "spec_drift": {
       "priority_1": "GitHub repo + README — primary organic discovery",
-      "priority_2": "Dev.to: 'How to catch LLM regressions in CI before they hit production'",
-      "priority_3": "r/LocalLLaMA — problem-first framing",
-      "priority_4": "Show HN — target 10-30 points"
-    },
-    "llm_contract": {
-      "priority_1": "GitHub repo + README — primary organic discovery",
-      "priority_2": "Dev.to: 'Why your LLM functions need behavioral contracts (not just Pydantic)'",
-      "priority_3": "r/MachineLearning + r/LocalLLaMA — Promptfoo acquisition angle",
-      "promptfoo_angle": "Promptfoo acquired by OpenAI. llm-contract = provider-agnostic behavioral contracts for teams who don't want OpenAI lock-in.",
-      "priority_4": "Show HN — target 10-30 points"
-    },
-    "drift_guard": {
-      "priority_1": "GitHub repo + README — primary organic discovery",
-      "priority_2": "Dev.to: 'Your PR description is a contract. Is your code fulfilling it?'",
-      "priority_3": "r/devops + r/programming — 'AI writes 42% of code; nobody checks if PRs do what they say'",
-      "coderabbit_angle": "CodeRabbit charges $24-30/dev/month and still doesn't verify intent. drift-guard is free and does exactly that.",
-      "priority_4": "Show HN — target 10-30 points. Angle: 'I built a tool that checks if your PR does what it says it does'"
+      "priority_2": "Dev.to: 'Your LLM outputs pass Pydantic. That\u2019s not enough.'",
+      "priority_3": "r/MachineLearning + r/LocalLLaMA — 'Silent model updates are shifting your LLM output distributions'",
+      "pydantic_angle": "Pydantic is the universal LLM output validator. spec-drift is the next layer — semantic compliance on top of structural validation.",
+      "evidently_angle": "Evidently monitors statistical data drift. spec-drift monitors semantic spec compliance. Different problem, different layer.",
+      "priority_4": "Show HN — 'I built a tool that detects when your LLM outputs drift from their declared behavioral spec'"
     }
   },
 
   "pipeline": {
     "shipped": [
-      "prompt-lock v0.1.0 (code complete, 34/34 tests)",
-      "llm-contract v0.1.0 (code complete, 66/66 tests)",
-      "drift-guard v0.1.0 (code complete, 41/41 tests)"
+      "prompt-lock v0.1.0 (code complete, 34/34 tests, Pivot_Score 8.70)",
+      "llm-contract v0.1.0 (code complete, 66/66 tests, Pivot_Score 8.30)",
+      "drift-guard v0.1.0 (code complete, 41/41 tests, Pivot_Score 8.60)",
+      "spec-drift v0.1.0 (code complete, 67/67 tests, Pivot_Score 8.63)"
     ],
-    "next_developer_tool": "cot-coherence (BibleWorld BUILD FOURTH, score 8.00) — awaiting build directive",
-    "next_revenue_product": "GrantPilot (GhanaWorld Cycle 031 launch brief complete, $29-499/month, 2-3 week MVP, post-USAID urgency)",
-    "decision_gate": "After 100+ installs on any tool: continue developer tools track with cot-coherence. Under 100 in 3 weeks of launch: pivot to GrantPilot for Law 2 revenue."
+    "next_developer_tool": "cot-coherence (BibleWorld BUILD FIFTH, score 8.00) — confirmed GREEN in 2 fresh searches March 2026. 3-6 month competitive window.",
+    "next_revenue_product": "GrantPilot re-evaluation required — Grant Wizard (direct competitor) launched March 2026. Need fresh competitive analysis before building.",
+    "decision_gate": "After 100+ installs on any tool: continue developer tools track with cot-coherence. Under 100 in 3 weeks of launch: evaluate GrantPilot competitive moat vs Grant Wizard."
   },
 
   "needs_from_bibleworld": {
-    "priority": "LOW",
-    "status": "drift-guard v0.1.0 COMPLETE — built from BibleWorld Cycle 011 prototype. 41/41 tests pass.",
-    "request": "Direction on sequencing: build cot-coherence next (developer tools track, score 8.00) OR pivot to GrantPilot (Law 2 revenue)? BuildWorld has capacity for either.",
-    "request_2": "Any patterns on OSS-to-paid conversion or developer tool pricing psychology? Need monetization path for hosted dashboard (v0.3+).",
-    "known_unknowns_inherited": ["KU-013 (large diff handling for drift-guard v0.2)", "KU-015 (optimal system prompt tuning — needs 50+ labeled PR/diff pairs)"]
+    "priority": "HIGH",
+    "request_1": "cot-coherence build directive. Score 8.00, confirmed GREEN. BibleWorld has research on Reasoning Horizon (Feb 2026 arXiv paper). Ready to build. Is this the next BUILD directive?",
+    "request_2": "GrantPilot differentiation analysis: Grant Wizard (Nigeria, March 2026) is the direct Africa AI grant writing competitor. What is GrantPilot's moat? Can it occupy a distinct position (diaspora-specific funders, Mastercard Foundation, GIZ, AfDB) vs Grant Wizard (generic Africa NGO)?",
+    "request_3": "Any fresh patterns from Revelation 4-5 (throne room distributed coordination) that map to new developer tool gaps? BibleWorld flagged this as high priority for Cycle 013.",
+    "known_unknowns_inherited": [
+      "KU-013 (large diff handling for drift-guard v0.2)",
+      "KU-015 (optimal system prompt tuning for drift-guard)",
+      "KU-017 (optimal LLM judge prompt for spec-drift semantic constraint evaluation — v0.2)",
+      "KU-018 (zero-shot baseline calibration for spec-drift — v0.2)"
+    ]
   },
 
   "needs_from_ghanaworld": {
-    "priority": "MEDIUM — GrantPilot queued, not paused",
-    "status": "GhanaWorld Cycle 031 launch brief received and acknowledged. Full spec on hand.",
-    "resume_condition": "3-week traction gate fires (developer tools <100 installs) OR explicit BuildWorld Law 2 override",
-    "note": "Horizon Europe KU-048 (diaspora eligibility) acknowledged — will not build EU Horizon template until resolved."
+    "priority": "MEDIUM",
+    "request_1": "GrantPilot competitive update: Grant Wizard launched March 12 2026. Is the GrantPilot moat (diaspora-specific funders, Mastercard Foundation, GIZ, AfDB hallucination mitigation) still defensible against Grant Wizard's generic Africa approach?",
+    "request_2": "GhanaComply is second priority (score 7.2). Still viable — no direct RegTech competitor confirmed. Is the build sequence still GrantPilot first, GhanaComply second?",
+    "resume_condition": "3-week traction gate fires (developer tools <100 installs) OR explicit BuildWorld Law 2 override + Grant Wizard competitive differentiation confirmed."
   },
 
   "to_bibleworld": {
-    "build_status": "drift-guard v0.1.0 COMPLETE — 41/41 tests pass, CLI works, package builds. Promoted from BibleWorld prototype to production-ready package.",
-    "cycle_011_deliverable_received": "drift-guard prototype (450+ lines) consumed and shipped. BUILD THIRD complete.",
-    "developer_tools_pipeline": "THREE tools code-complete: prompt-lock (8.70), drift-guard (8.60), llm-contract (8.30). All PyPI-ready.",
-    "ready_for": "cot-coherence build when directed. Await direction on sequencing vs GrantPilot.",
-    "model_update": "Updated default model to claude-haiku-4-5-20251001 (latest Haiku) across all three tools."
+    "build_status": "spec-drift v0.1.0 COMPLETE — 67/67 tests pass, CLI works, package builds. Promoted from BibleWorld Cycle 012 prototype to production-ready package.",
+    "cycle_012_deliverable_received": "spec-drift prototype (240+ lines) consumed and shipped. BUILD FOURTH complete (from BibleWorld's perspective: spec-drift = their build_now directive).",
+    "developer_tools_pipeline": "FOUR tools code-complete: prompt-lock (8.70), drift-guard (8.60), spec-drift (8.63), llm-contract (8.30). All PyPI-ready.",
+    "ready_for": "cot-coherence build when directed. Confirmed GREEN in fresh searches. 3-6 month competitive window per Reasoning Horizon research activity.",
+    "grantpilot_competitive_flag": "Grant Wizard launched March 12 2026 — Africa's first AI grant writing platform. GhanaWorld's GrantPilot moat requires fresh analysis. BuildWorld flagging this for BibleWorld pattern research: how do tools differentiate in crowded markets?"
   },
 
   "to_ghanaworld": {
-    "status": "GrantPilot acknowledged as next revenue play. Launch brief (Cycle 031) received and queued.",
-    "usaid_shock": "Confirmed urgent demand. Search confirmed no diaspora-specific AI grant tool exists.",
-    "pricing_validation": "Market prices $10-899/month. GrantPilot $29-499/month defensible. Founding Member $79/month locked for first 100.",
-    "ku_048_noted": "Will not build EU Horizon Europe template until KU-048 (diaspora eligibility) resolved."
+    "status": "GrantPilot queued but competitive analysis required before building. Grant Wizard (Nigeria, March 2026) is direct competitor.",
+    "developer_tools_status": "FOUR tools code-complete. PyPI-ready. Awaiting manual deploy step (PyPI account + GitHub repos).",
+    "grantpilot_question": "Is GrantPilot's diaspora angle (Mastercard Foundation, GIZ, AfDB templates, 6-layer hallucination mitigation) sufficiently differentiated from Grant Wizard's generic Africa NGO approach?",
+    "ghanacomply_status": "Acknowledged as second priority. No competitive conflict identified in developer tools pipeline."
   }
 }

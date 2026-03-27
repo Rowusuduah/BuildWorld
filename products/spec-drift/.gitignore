@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+*.spec_drift.db
+spec_drift.db
+*.db
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
