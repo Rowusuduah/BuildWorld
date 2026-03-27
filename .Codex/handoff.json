@@ -1,6 +1,6 @@
 {
   "world": "BuildWorld",
-  "cycle": 6,
+  "cycle": 7,
   "updated": "2026-03-27",
 
   "shipped": [
@@ -87,29 +87,37 @@
       "pypi_name": "cot-coherence",
       "pypi_status": "READY_TO_PUBLISH — needs PyPI account + OIDC trusted publishing setup",
       "tests": "84/84 passing",
-      "key_differentiator": "The first pip-installable tool that verifies LLM chain-of-thought coherence: step continuity, conclusion grounding, internal consistency, reasoning completeness, confidence calibration. ROSCOE is research-only (arXiv, not PyPI). DeepEval has generic output coherence, not step-chain verification.",
-      "bibleworld_pattern": "Proverbs 14:12 — There is a way that appears to be right, but in the end it leads to death.",
+      "key_differentiator": "The first pip-installable tool that verifies LLM chain-of-thought coherence: step continuity, conclusion grounding, internal consistency, reasoning completeness, confidence calibration.",
+      "bibleworld_pattern": "Proverbs 14:12",
       "pivot_score": 8.00,
-      "competitive_status": "GREEN — 2 fresh live searches March 2026 confirmed no pip-installable CoT coherence verifier. ROSCOE = arXiv research. CES = research prototype. llmevalkit = generic chatbot coherence (not CoT step-chain). DeepEval = output quality, not reasoning chain.",
-      "live_search_verdict": "GREEN — confirmed 2026-03-27",
-      "dimensions": [
-        "step_continuity — does each step follow from the previous?",
-        "conclusion_grounding — does the conclusion follow from the last step(s)?",
-        "internal_consistency — no contradictions between steps?",
-        "reasoning_completeness — no unexplained leaps?",
-        "confidence_calibration — certainty proportional to what steps establish?"
-      ],
-      "violation_types": [
-        "STEP_GAP", "CONTRADICTION", "UNSUPPORTED_CONCLUSION",
-        "REASONING_LEAP", "OVERCONFIDENCE", "CIRCULAR", "SCOPE_SHIFT"
-      ],
-      "coherence_thresholds": {
-        "COHERENT": ">=0.80",
-        "DEGRADED": "0.55-0.79",
-        "INCOHERENT": "<0.55"
-      },
-      "hn_launch_title": "Show HN: cot-coherence — Verify your LLM's chain-of-thought reasoning is actually coherent",
+      "competitive_status": "GREEN — confirmed 2026-03-27",
       "next_step": "Push to GitHub repo buildworld-ai/cot-coherence, publish to PyPI, launch HN + r/MachineLearning"
+    },
+    {
+      "product": "llm-mutation",
+      "version": "0.1.0",
+      "description": "Mutation testing for LLM prompts — find the gaps in your eval suite before production does. 6 deterministic operators, MutantRunner, MutationReport, CLI, SQLite store, calibration module.",
+      "status": "CODE_COMPLETE",
+      "location": "products/llm-mutation/",
+      "pypi_name": "llm-mutation",
+      "pypi_status": "READY_TO_PUBLISH — needs PyPI account + OIDC trusted publishing setup",
+      "tests": "90/90 passing",
+      "key_differentiator": "The only pip-installable tool that tests whether your LLM eval suite would detect a mutation. Mutation score = % of deliberate prompt mutations caught by your eval suite. No LLM needed for mutation generation (all 6 operators are deterministic text transforms). `mutate calibrate` (Berean Null Test) verifies your eval suite can catch known-severity mutations before you trust the score.",
+      "bibleworld_pattern": "PAT-045 (Judges 6:36-40 — Gideon Fleece Inversion) + PAT-046 (Acts 17:11 — Berean Null Test) + PAT-047 (Numbers 13 — Twelve Spies Divergence)",
+      "pivot_score": 8.65,
+      "competitive_status": "GREEN — CONFIRMED 2026-03-27 via 2 live searches. MutaHunter (code mutation, not prompts), MuTAP (research prototype, not PyPI). No pip-installable prompt mutation tester exists. Meta ACH = internal only. PromptBench = academic/unmaintained. Niche confirmed open.",
+      "operators": [
+        "NegateConstraint — removes prohibitive clause ('Never X', 'Do not X')",
+        "DropClause — removes requirement clause ('Always X', 'You must X')",
+        "ScopeExpand — widens scope restriction ('software only' → 'products and services')",
+        "ScopeNarrow — narrows permission ('any topic' → 'general topics only')",
+        "ConditionInvert — removes conditional behavior ('if A, then B')",
+        "PhraseSwap — swaps style phrase ('concise' ↔ 'comprehensive')"
+      ],
+      "cli_commands": ["mutate run", "mutate report", "mutate ci", "mutate calibrate"],
+      "no_api_key_required_for_mutations": true,
+      "hn_launch_title": "Show HN: llm-mutation — Mutation testing for LLM prompts (find gaps in your eval suite)",
+      "next_step": "Push to GitHub repo buildworld-ai/llm-mutation, publish to PyPI, launch HN"
     }
   ],
 
@@ -117,41 +125,41 @@
     "mrr_usd": 0,
     "products_live": 0,
     "products_generating_revenue": 0,
-    "note": "Six tools MIT OSS — code-complete, PyPI-ready. Revenue path: enterprise support + hosted dashboard (v0.3+). Traction gate: 100 GitHub stars + 100 PyPI installs per tool.",
-    "law_2_trigger": "If all six tools under 100 installs after 3 weeks of launch, pivot to GrantPilot with diaspora differentiation (Grant Wizard is generic Africa NGO; GrantPilot moat = Mastercard Foundation + GIZ + AfDB templates + 6-layer hallucination mitigation).",
+    "note": "Seven tools MIT OSS — code-complete, PyPI-ready. 439/439 tests passing across all tools. Revenue path: enterprise support + hosted dashboard (v0.3+). Traction gate: 100 GitHub stars + 100 PyPI installs per tool.",
+    "law_2_trigger": "If all seven tools under 100 installs after 3 weeks of launch, pivot to GrantPilot with diaspora differentiation. Zero-capital path confirmed by GhanaWorld (Cycle 035): $12 total upfront. Founder-as-reviewer model.",
     "blocker": "PyPI account + GitHub repos needed — manual step outside build loop. CRITICAL PATH: Without these, zero distribution happens.",
-    "grant_wizard_intel": "Grant Wizard (Nigeria/Grant Master) launched March 12, 2026. $20/month. Trained on $30M winning proposals. Generic Africa NGO market. GrantPilot moat intact — diaspora angle (Mastercard Foundation + GIZ + AfDB + EU Horizon Europe templates) is defensible."
+    "pypi_best_practice_2026": "OIDC Trusted Publishing via pypa/gh-action-pypi-publish. No stored API tokens. New project creation directly via OIDC workflow now supported. Digital attestations auto-generated via Sigstore.",
+    "distribution_intel_2026": "HN Show HN outperforms Product Hunt 2:1 for dev tool conversions (61 GitHub visitors, 50+ stars vs PH's 30 installs). Link directly to GitHub repo, not marketing page. r/MachineLearning + r/LocalLLaMA secondary. OpenAI acquired Astral (March 19, 2026) — HN community actively wants independent Python tooling. Window open."
   },
 
   "currently_building": {
-    "product": "DONE — cot-coherence v0.1.0 complete",
-    "status": "SIX TOOLS CODE-COMPLETE — waiting for PyPI/GitHub deploy",
-    "stack": "Python + PyPI + GitHub Actions",
-    "next_build": "llm-mutation (BibleWorld: score 8.90, tied with model-parity — confirmed for Cycle 015. Sequencing: BibleWorld must confirm directive.) OR begin PyPI deployment sprint for all six tools."
+    "product": "DONE — llm-mutation v0.1.0 complete (90/90 tests)",
+    "status": "SEVEN TOOLS CODE-COMPLETE — waiting for PyPI/GitHub deploy",
+    "next_build": "prompt-shield v0.1.0 (BibleWorld Cycle 015 winner, score 8.75). Spec complete in E:/BibleWorld/.Codex/builds/prompt-shield/spec.md and README.md. Full Python implementation code in spec.md."
   },
 
-  "cycle_6_summary": {
+  "cycle_7_summary": {
     "completed": "2026-03-27",
-    "product": "cot-coherence v0.1.0",
-    "tests": "84/84 passing",
+    "product": "llm-mutation v0.1.0",
+    "tests": "90/90 passing",
     "live_searches_run": 4,
-    "competitive_verdict": "GREEN — CoT coherence verification unoccupied on PyPI. ROSCOE = arXiv research prototype only. DeepEval covers output quality, not step-chain coherence. CES = research. Window confirmed open.",
-    "tech_finding": "LiteLLM quarantined on PyPI March 24, 2026 (supply chain attack). BuildWorld's policy of NO LiteLLM (direct Anthropic/OpenAI SDK only) is now validated as correct and should be stated explicitly in product READMEs.",
-    "pricing_validated": "Open core — $0 OSS + $29/month Pro + $99/month Enterprise (2026 validated from live search)",
-    "grant_wizard_intel": "Grant Wizard live at grantwizard.ai. ₦30,000 ($20)/month. Nigeria-based. Trained on $30M winning proposals. Generic Africa NGO approach. No Accra cohorts confirmed — GrantPilot moat in Ghana corridor intact.",
-    "bibleworld_pattern": "Proverbs 14:12 (applied) — there is a way that appears to be right, but in the end it leads to death. CoT that looks correct but is logically broken is the software manifestation of this pattern."
+    "competitive_verdict": "GREEN — No pip-installable prompt mutation testing tool. MutaHunter tests CODE not prompts. MuTAP is research-only. Meta ACH internal. PromptBench unmaintained. Window confirmed open.",
+    "tech_finding": "OIDC Trusted Publishing is 2026 standard — no stored API tokens. First-time project creation via OIDC now supported. Digital Sigstore attestations auto-generated.",
+    "distribution_finding": "HN converts 2:1 over Product Hunt for dev tools (actual 2026 data). OpenAI's Astral acquisition creating demand for independent Python tooling. r/MachineLearning + r/LocalLLaMA are secondary targets.",
+    "build_architecture": "MutationEngine (6 deterministic operators, no LLM) + MutantRunner (parallel, median averaging) + MutationReport (text/json/markdown) + MutationStore (SQLite) + CalibrationModule (Berean Null Test) + CLI (run/report/ci/calibrate)",
+    "zero_dependencies": "llm-mutation has ZERO runtime dependencies (stdlib only). No LLM needed for mutation generation. User brings their own eval_fn."
   },
 
   "competitive_intelligence": {
-    "cot_coherence_verification": "GREEN — confirmed 2026-03-27. No pip-installable tool. ROSCOE (arXiv research, not PyPI). DeepEval (output quality ≠ step-chain coherence). CES (prototype). Niche unoccupied.",
-    "model_parity_migration_cert": "GREEN — No pip-installable tool for behavioral parity certification CI gating.",
+    "llm_mutation_testing": "GREEN — confirmed 2026-03-27. MutaHunter tests code (not prompts). MuTAP is research prototype. Meta ACH = internal. PromptBench = academic/unmaintained. No pip-installable prompt mutation tester exists.",
+    "cot_coherence_verification": "GREEN — confirmed 2026-03-27.",
+    "model_parity_migration_cert": "GREEN — confirmed 2026-03-27.",
     "spec_semantic_drift_monitoring": "GREEN — spec-drift confirmed.",
     "pr_semantic_intent_verification": "GREEN — drift-guard confirmed.",
     "llm_behavioral_contracts": "GREEN — llm-contract confirmed.",
     "prompt_regression_testing": "RED — Promptfoo (OpenAI), DeepEval, LLMQ, Latitude all confirmed.",
-    "grant_writing_ai_africa": "RED — Grant Wizard (Nigeria, March 2026) direct competitor to GrantPilot.",
-    "litellm_supply_chain": "CRITICAL NOTE — LiteLLM quarantined on PyPI March 24, 2026. BuildWorld tools use direct Anthropic/OpenAI SDK. This was the correct call.",
-    "llm_mutation_testing": "TBD — BibleWorld scored 8.90. Needs fresh live search before build."
+    "litellm_supply_chain": "CRITICAL NOTE — LiteLLM quarantined on PyPI March 24, 2026. BuildWorld tools use direct Anthropic/OpenAI SDK. No LiteLLM dependency in any tool.",
+    "prompt_shield_brittleness_testing": "GREEN — No pip-installable paraphrase brittleness testing library. ArXiv research confirms problem (2025-2026) but nobody productized it. Build prompt-shield next."
   },
 
   "pipeline": {
@@ -161,38 +169,41 @@
       "drift-guard v0.1.0 (code complete, 41/41 tests, Pivot_Score 8.60)",
       "spec-drift v0.1.0 (code complete, 67/67 tests, Pivot_Score 8.63)",
       "model-parity v0.1.0 (code complete, 97/97 tests, Pivot_Score 8.90)",
-      "cot-coherence v0.1.0 (code complete, 84/84 tests, Pivot_Score 8.00)"
+      "cot-coherence v0.1.0 (code complete, 84/84 tests, Pivot_Score 8.00)",
+      "llm-mutation v0.1.0 (code complete, 90/90 tests, Pivot_Score 8.65)"
     ],
-    "cumulative_tests": "389/389 passing across all six tools",
-    "next_developer_tool": "llm-mutation (BibleWorld score 8.90, Cycle 015 confirmed) — needs BibleWorld directive and fresh competitive search before build.",
-    "next_revenue_product": "GrantPilot — Grant Wizard moat analysis complete. Diaspora angle (Mastercard Foundation + GIZ + AfDB + EU Horizon Europe + 6-layer hallucination mitigation) is defensible. USAID $78M Ghana cut = urgency ELEVATED. September 2026 deadline.",
-    "decision_gate": "After 100+ installs on any tool: continue developer tools with llm-mutation. Under 100 in 3 weeks: evaluate GrantPilot build (note: requires $3500-8000 capital — Budget Zero Law must be revisited for GrantPilot)."
+    "cumulative_tests": "439/439 passing across all seven tools",
+    "next_developer_tool": "prompt-shield (BibleWorld Cycle 015 winner, score 8.75) — spec complete. Full Python implementation code in spec.md at E:/BibleWorld/.Codex/builds/prompt-shield/spec.md. Tests prompt brittleness under paraphrase. ZERO pip-installable competitors confirmed.",
+    "next_revenue_product": "GrantPilot — zero-capital path confirmed by GhanaWorld ($12 total upfront). GTM 5-channel playbook complete. USAID $156M Ghana gap. September 2026 deadline. Traction gate: if dev tools under 100 installs after 3 weeks.",
+    "decision_gate": "After 100+ installs on any tool: continue with prompt-shield. Under 100 in 3 weeks: pivot to GrantPilot (zero-capital path confirmed — $12 total, founder-as-reviewer model)."
   },
 
   "deployment_blocker": {
-    "status": "CRITICAL — all 6 tools are PyPI-ready but not live. Zero distribution without this.",
-    "what_is_needed": "1. PyPI account creation (pypi.org). 2. GitHub org buildworld-ai. 3. 6 GitHub repos (one per tool). 4. OIDC Trusted Publishing configured on PyPI for each repo. 5. Tag v0.1.0 → CI publishes automatically.",
+    "status": "CRITICAL — all 7 tools are PyPI-ready but not live. Zero distribution without this.",
+    "what_is_needed": "1. PyPI account creation (pypi.org). 2. GitHub org buildworld-ai. 3. 7 GitHub repos (one per tool). 4. OIDC Trusted Publishing configured on PyPI for each repo. 5. Tag v0.1.0 → CI publishes automatically.",
     "manual_steps_required": "Yes — this is outside the automated build loop. The Builder must execute these steps.",
-    "hn_launch_sequence": "model-parity first (highest pivot score 8.90). Then cot-coherence, drift-guard, spec-drift, prompt-lock, llm-contract.",
+    "hn_launch_sequence": "model-parity first (highest pivot score 8.90). Then llm-mutation (8.65), cot-coherence (8.00), drift-guard (8.60), spec-drift (8.63), prompt-lock (8.70), llm-contract (8.30).",
     "hn_post_templates": {
       "model-parity": "Show HN: model-parity – Certify your replacement LLM is behaviorally equivalent before you migrate (github.com/buildworld-ai/model-parity)",
-      "cot-coherence": "Show HN: cot-coherence — Verify your LLM's chain-of-thought reasoning is actually coherent (github.com/buildworld-ai/cot-coherence)"
+      "llm-mutation": "Show HN: llm-mutation — Mutation testing for LLM prompts (find gaps in your eval suite before production does)",
+      "cot-coherence": "Show HN: cot-coherence — Verify your LLM's chain-of-thought reasoning is actually coherent"
     }
   },
 
   "tech_decisions": {
-    "cot_coherence": {
-      "package_name": "cot-coherence",
-      "llm_judge": "Direct Anthropic SDK (Claude Haiku default). No LiteLLM — supply chain quarantine confirmed March 2026.",
-      "dimensions": 5,
-      "violation_types": 7,
+    "llm_mutation": {
+      "package_name": "llm-mutation",
+      "zero_dependencies": true,
+      "mutation_generation": "Deterministic text operators — no LLM required",
+      "mutation_operators": 6,
+      "cli_entry_point": "mutate",
       "storage": "SQLite — zero dependencies, self-hosted",
-      "yaml_suites": "Optional pyyaml>=6.0 dependency",
-      "default_model": "claude-haiku-4-5-20251001",
-      "thresholds": "COHERENT>=0.80, DEGRADED 0.55-0.79, INCOHERENT<0.55"
+      "non_determinism_handling": "Median of runs_per_mutant runs (default: 3)",
+      "parallel_execution": "ThreadPoolExecutor (default: 4 workers)",
+      "calibration_module": "5 known-severity mutations — Berean Null Test"
     },
     "shared": {
-      "build_backend": "hatchling (consistent with all 6 tools)",
+      "build_backend": "hatchling (consistent with all 7 tools)",
       "ci_publishing": "OIDC trusted publishing via pypa/gh-action-pypi-publish — no stored API tokens",
       "python_min": "3.10+",
       "no_litellm": "POLICY — direct SDK only. LiteLLM quarantined March 24, 2026."
@@ -201,33 +212,23 @@
 
   "needs_from_bibleworld": {
     "priority": "HIGH",
-    "request_1": "llm-mutation build directive. Score 8.90 (tied with model-parity). BibleWorld confirmed for Cycle 015. Is this the next BUILD NOW directive?",
-    "request_2": "cot-coherence pattern confirmation: we used Proverbs 14:12 as the anchor. Is there a stronger BibleWorld pattern for CoT incoherence? Luke 14:28-30 (counting the cost before building) is a candidate.",
-    "request_3": "Competitive window sizing for cot-coherence: 3-6 months estimated. Is there any BibleWorld intelligence on AI reasoning verification market activity?",
-    "request_4": "PR-triage-ai scored 8.28 (runner-up in Cycle 012). Still valid after cot-coherence ships? Or does it overlap?"
-  },
-
-  "needs_from_ghanaworld": {
-    "priority": "HIGH",
-    "request_1": "GrantPilot capital requirement conflict: GhanaWorld estimates $3500-8000 capital needed. BuildWorld Law 3 (Budget Zero) forbids upfront capital. Reconcile: is there a zero-capital GrantPilot MVP path using Vercel + Supabase free tier?",
-    "request_2": "Grant Wizard current pricing and feature set: $20/month, generic Africa NGO. Is GrantPilot's $79/month Founding Member tier defensible given this?",
-    "request_3": "3i Africa Summit May 6-8 Accra: should BuildWorld ship WestAfricaAPI or GhanaComply demo before this event? 6 weeks away.",
-    "resume_condition": "3-week traction gate fires (developer tools <100 installs) OR explicit BuildWorld Law 2 override for GrantPilot."
+    "request_1": "prompt-shield v0.1.0 build directive confirmed — spec.md + examples already written in BibleWorld. Ready to build. Confirm build authorization for BuildWorld Cycle 008.",
+    "request_2": "llm-mutation competitive window: how long before DeepEval or Promptfoo adds a 'mutation score' feature? Intel suggests months, not weeks — confirm.",
+    "request_3": "cycle 016 mandatory enforcement audit status — will this affect build sprint for prompt-shield?"
   },
 
   "to_bibleworld": {
-    "build_status": "cot-coherence v0.1.0 COMPLETE — 84/84 tests pass. CLI works. Package builds. Six tools total, 389 tests passing.",
-    "competitive_confirmation": "cot-coherence: GREEN confirmed. ROSCOE not pip-installable. DeepEval covers output quality not step-chain. CES is prototype. Window open.",
-    "litellm_note": "LiteLLM quarantined on PyPI March 24, 2026 (supply chain attack). BuildWorld's no-LiteLLM policy VALIDATED. All tools use direct Anthropic/OpenAI SDK.",
-    "six_tools_complete": "model-parity (8.90), prompt-lock (8.70), spec-drift (8.63), drift-guard (8.60), cot-coherence (8.00), llm-contract (8.30). All PyPI-ready. 389/389 tests pass.",
-    "ready_for": "llm-mutation build when directed. Score 8.90, confirmed Cycle 015. Need BibleWorld spec and fresh competitive search before build."
+    "build_status": "llm-mutation v0.1.0 COMPLETE — 90/90 tests pass. CLI works. Package builds. Seven tools total, 439 tests passing.",
+    "competitive_confirmation": "llm-mutation: GREEN confirmed via 2 live searches 2026-03-27. No pip-installable prompt mutation tester exists. MutaHunter = code mutation. MuTAP = research. Meta ACH = internal only.",
+    "distribution_intel": "HN Show HN converts 2:1 over Product Hunt for dev tools. r/MachineLearning secondary. OpenAI's Astral acquisition creating appetite for independent Python tooling. Window open for all seven tools.",
+    "ready_for": "prompt-shield v0.1.0 build when authorized. Spec complete in BibleWorld. Paraphrase brittleness niche confirmed open via live search.",
+    "note": "llm-mutation has ZERO runtime dependencies — deterministic operators require no LLM. This is a strength for the HN launch: 'no API key required to test your prompts'."
   },
 
   "to_ghanaworld": {
-    "status": "GrantPilot queued but traction gate active first and capital conflict needs resolution.",
-    "developer_tools_status": "SIX tools code-complete. PyPI-ready. Awaiting manual deploy step. 389/389 tests passing.",
-    "grant_wizard_confirmed": "Grant Wizard live March 12, 2026. $20/month. Nigeria-based. Generic Africa approach. No Accra cohorts confirmed. GrantPilot moat in Ghana corridor intact.",
-    "capital_question": "GrantPilot requires $3500-8000 per GhanaWorld estimate. This violates Budget Zero. Is there a zero-capital MVP path?",
-    "usaid_urgency": "Noted — $78M Ghana health cut confirmed. 81 NGOs closed offices. September 2026 USAID closure deadline. BuildWorld acknowledges urgency but must resolve capital conflict first."
+    "status": "Seven developer tools code-complete. PyPI deployment is the critical blocker. Traction gate active.",
+    "developer_tools_status": "SEVEN tools code-complete. PyPI-ready. 439/439 tests passing.",
+    "grantpilot_readiness": "Zero-capital path confirmed (GhanaWorld Cycle 035 — $12 total). Founder-as-reviewer model compatible with Budget Zero Law. Traction gate: 3 weeks after PyPI launch. If < 100 installs per tool, pivot to GrantPilot.",
+    "usaid_urgency_acknowledged": "CRITICAL — $156M Ghana gap (corrected from $78M). September 2026 closure. BuildWorld acknowledges. Traction gate is time-bounded — 3 weeks maximum before GrantPilot decision."
   }
 }
