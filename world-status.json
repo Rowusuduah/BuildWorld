@@ -1,0 +1,30 @@
+{
+  "world_name": "BuildWorld",
+  "as_of_cycle": 0,
+  "last_updated": "2026-03-26",
+  "world_alive": true,
+
+  "products": [],
+
+  "revenue": {
+    "total_lifetime_usd": 0.0,
+    "current_month_usd": 0.0,
+    "current_month_costs_usd": 0.0,
+    "net_current_month_usd": 0.0,
+    "mrr_usd": 0.0,
+    "highest_milestone_reached": "NONE"
+  },
+
+  "deployment_status": [],
+
+  "cycle_history": [],
+
+  "world_survival_metrics": {
+    "ship_score": 0.0,
+    "revenue_score": 0.0,
+    "code_quality": 0.0,
+    "world_alive": true,
+    "products_shipped": 0,
+    "products_live": 0
+  }
+}

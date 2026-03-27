@@ -1,0 +1,128 @@
+{
+  "world_name": "BuildWorld",
+  "version": "1.0.0",
+  "current_cycle": 0,
+  "cycle_count": 0,
+  "last_updated": "2026-03-26",
+  "world_alive": true,
+  "initialized": true,
+
+  "survival_thresholds": {
+    "ship_score_min": 0.50,
+    "revenue_score_min": 0.0,
+    "code_quality_min": 0.60,
+    "products_shipped_min": 0
+  },
+
+  "current_metrics": {
+    "ship_score": 0.0,
+    "revenue_score": 0.0,
+    "code_quality": 0.0,
+    "products_shipped": 0,
+    "products_generating_revenue": 0,
+    "total_revenue_usd": 0.0,
+    "monthly_revenue_usd": 0.0,
+    "monthly_costs_usd": 0.0,
+    "runway_months": "infinite_at_zero_cost"
+  },
+
+  "revenue_milestones": {
+    "first_dollar": false,
+    "twenty_per_month": false,
+    "hundred_per_month": false,
+    "two_hundred_per_month": false,
+    "five_hundred_per_month": false,
+    "two_thousand_per_month": false
+  },
+
+  "product_pipeline": [
+    {
+      "id": "PROD-001",
+      "name": "LogosSchema",
+      "source": "BibleWorld PAT-012",
+      "status": "SPEC_COMPLETE",
+      "priority": 1,
+      "revenue_model": "$15-49/month SaaS",
+      "stack": "Next.js + Claude API + Vercel",
+      "estimated_build_cycles": 2
+    },
+    {
+      "id": "PROD-002",
+      "name": "EvalGate",
+      "source": "BibleWorld PAT-010",
+      "status": "SPEC_COMPLETE",
+      "priority": 2,
+      "revenue_model": "$0.001/eval + $199-500/month",
+      "stack": "Python + PyPI + Railway",
+      "estimated_build_cycles": 2
+    },
+    {
+      "id": "PROD-003",
+      "name": "GhanaFounder Intelligence Report",
+      "source": "GhanaWorld cycles",
+      "status": "CONCEPT",
+      "priority": 3,
+      "revenue_model": "$29/month subscription",
+      "stack": "Markdown + PDF + Resend + Stripe",
+      "estimated_build_cycles": 1
+    },
+    {
+      "id": "PROD-004",
+      "name": "AI Business Schema Generator",
+      "source": "BibleWorld PAT-012 + PAT-001",
+      "status": "CONCEPT",
+      "priority": 4,
+      "revenue_model": "$9.99/month freemium",
+      "stack": "Next.js + Claude API + Vercel",
+      "estimated_build_cycles": 3
+    },
+    {
+      "id": "PROD-005",
+      "name": "Scripture Pattern Engine",
+      "source": "BibleWorld all patterns",
+      "status": "CONCEPT",
+      "priority": 5,
+      "revenue_model": "$4.99-19.99/month",
+      "stack": "Next.js + Supabase + Claude API",
+      "estimated_build_cycles": 3
+    },
+    {
+      "id": "PROD-006",
+      "name": "Africa SME Toolkit",
+      "source": "GhanaWorld + PAT-004",
+      "status": "CONCEPT",
+      "priority": 6,
+      "revenue_model": "$5/month (GHS 60)",
+      "stack": "PWA + Supabase + mobile money",
+      "estimated_build_cycles": 5
+    }
+  ],
+
+  "tech_stack": {
+    "frontend": "Next.js 14 / Astro",
+    "hosting": "Vercel free tier",
+    "database": "Supabase free tier",
+    "auth": "Supabase Auth",
+    "payments": "Stripe",
+    "email": "Resend",
+    "ai": "Claude API (Haiku for cost efficiency)",
+    "package_registry": "PyPI + npm",
+    "ci_cd": "GitHub Actions",
+    "domains": "*.pages.dev (Cloudflare free)"
+  },
+
+  "cycle_types": {
+    "BUILD": "Write production code for a product",
+    "SHIP": "Deploy to production, set up payments, launch",
+    "MEASURE": "Analyze metrics, revenue, user feedback",
+    "ITERATE": "Fix bugs, improve based on user feedback",
+    "NEW_PRODUCT": "Spec and start a new product from pipeline"
+  },
+
+  "agents": {
+    "total": 3,
+    "the_builder": {"status": "ACTIVE", "role": "Build + Deploy"},
+    "the_reviewer": {"status": "ACTIVE", "role": "Code Quality + Security"},
+    "the_marketer": {"status": "ACTIVE", "role": "Launch + Distribution"}
+  }
+}
