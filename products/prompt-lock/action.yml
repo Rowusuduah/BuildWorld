@@ -1,0 +1,59 @@
+name: "prompt-lock"
+description: "Git-native prompt regression testing with judge calibration for LLM CI/CD"
+author: "BuildWorld"
+branding:
+  icon: "lock"
+  color: "blue"
+
+inputs:
+  config:
+    description: "Path to .prompt-lock.yml"
+    required: false
+    default: ".prompt-lock.yml"
+  all-prompts:
+    description: "Evaluate all prompts, not just git-changed ones"
+    required: false
+    default: "false"
+  no-calibrate:
+    description: "Skip judge calibration check"
+    required: false
+    default: "false"
+  python-version:
+    description: "Python version"
+    required: false
+    default: "3.11"
+
+outputs:
+  result:
+    description: "PASSED or FAILED"
+    value: ${{ steps.run.outputs.result }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - name: Install prompt-lock
+      shell: bash
+      run: pip install prompt-lock
+
+    - name: Run prompt-lock check
+      id: run
+      shell: bash
+      run: |
+        ARGS=""
+        [[ "${{ inputs.all-prompts }}" == "true" ]] && ARGS="$ARGS --all-prompts"
+        [[ "${{ inputs.no-calibrate }}" == "true" ]] && ARGS="$ARGS --no-calibrate"
+
+        if prompt-lock check --config "${{ inputs.config }}" $ARGS; then
+          echo "result=PASSED" >> "$GITHUB_OUTPUT"
+          echo "### ✅ prompt-lock PASSED" >> "$GITHUB_STEP_SUMMARY"
+        else
+          EXIT=$?
+          echo "result=FAILED" >> "$GITHUB_OUTPUT"
+          echo "### ❌ prompt-lock FAILED (exit $EXIT)" >> "$GITHUB_STEP_SUMMARY"
+          exit $EXIT
+        fi
