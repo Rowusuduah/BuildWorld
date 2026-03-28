@@ -5,26 +5,31 @@
   "world_alive": true,
 
   "bibleworld_state": {
-    "cycle": 18,
-    "total_patterns": 63,
-    "books_covered": 26,
+    "cycle": 19,
+    "total_patterns": 73,
+    "books_covered": 36,
     "tools_shipped": 8,
-    "tools_discovered": 3,
+    "tools_discovered": 5,
     "next_build": "agent-patrol",
     "next_build_score": 8.50,
     "next_build_domain": "Agent Reliability",
+    "second_build": "rag-pathology",
+    "second_build_score": 8.65,
+    "second_build_domain": "RAG Diagnostics",
     "pipeline": [
       {"name": "model-parity", "score": 8.90, "status": "shipped"},
       {"name": "chain-probe", "score": 8.85, "status": "discovered"},
       {"name": "context-lens", "score": 8.80, "status": "discovered"},
       {"name": "prompt-brittleness", "score": 8.75, "status": "shipped"},
       {"name": "inject-lock", "score": 8.70, "status": "shipped"},
+      {"name": "rag-pathology", "score": 8.65, "status": "discovered"},
       {"name": "llm-mutation", "score": 8.65, "status": "shipped"},
       {"name": "spec-drift", "score": 8.63, "status": "shipped"},
       {"name": "drift-sentinel", "score": 8.60, "status": "shipped"},
       {"name": "agent-patrol", "score": 8.50, "status": "discovered"},
       {"name": "llm-contract", "score": 8.30, "status": "shipped"},
-      {"name": "cot-coherence", "score": 8.00, "status": "shipped"}
+      {"name": "cot-coherence", "score": 8.00, "status": "shipped"},
+      {"name": "prompt-kiln", "score": 7.50, "status": "discovered"}
     ]
   },
 
