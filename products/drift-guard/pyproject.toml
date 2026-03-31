@@ -3,13 +3,13 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "drift-guard"
+name = "drift-sentinel"
 version = "0.1.0"
 description = "Verify that pull requests do what they say. Git-native PR semantic intent verifier."
 readme = "README.md"
 license = { text = "MIT" }
 authors = [
-    { name = "BuildWorld", email = "build@buildworld.dev" }
+    { name = "Richmond Owusu Duah", email = "Rowusuduah@users.noreply.github.com" }
 ]
 keywords = ["ai", "llm", "code-review", "pull-request", "ci-cd", "semantic", "verification", "git"]
 classifiers = [
@@ -41,9 +41,9 @@ dev = [
 drift-guard = "drift_guard:_cli_main"
 
 [project.urls]
-Homepage = "https://github.com/buildworld-ai/drift-guard"
-Repository = "https://github.com/buildworld-ai/drift-guard"
-Issues = "https://github.com/buildworld-ai/drift-guard/issues"
+Homepage = "https://github.com/Rowusuduah/drift-guard"
+Repository = "https://github.com/Rowusuduah/drift-guard"
+Issues = "https://github.com/Rowusuduah/drift-guard/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["drift_guard"]

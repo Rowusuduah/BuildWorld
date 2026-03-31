@@ -9,7 +9,7 @@ description = "Certify your replacement LLM is behaviorally equivalent before yo
 readme = "README.md"
 license = { text = "MIT" }
 authors = [
-    { name = "BuildWorld", email = "build@buildworld.dev" }
+    { name = "Richmond Owusu Duah", email = "Rowusuduah@users.noreply.github.com" }
 ]
 keywords = [
     "ai", "llm", "model-migration", "behavioral-testing", "parity",
@@ -48,9 +48,9 @@ dev = [
 parity = "model_parity:_cli_main"
 
 [project.urls]
-Homepage = "https://github.com/buildworld-ai/model-parity"
-Repository = "https://github.com/buildworld-ai/model-parity"
-Issues = "https://github.com/buildworld-ai/model-parity/issues"
+Homepage = "https://github.com/Rowusuduah/model-parity"
+Repository = "https://github.com/Rowusuduah/model-parity"
+Issues = "https://github.com/Rowusuduah/model-parity/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["model_parity"]

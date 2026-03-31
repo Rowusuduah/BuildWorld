@@ -9,7 +9,7 @@ description = "Semantic specification drift detector for LLM outputs — catches
 readme = "README.md"
 license = { text = "MIT" }
 authors = [
-    { name = "BuildWorld", email = "build@buildworld.dev" }
+    { name = "Richmond Owusu Duah", email = "Rowusuduah@users.noreply.github.com" }
 ]
 keywords = [
     "ai", "llm", "pydantic", "semantic", "drift", "monitoring",
@@ -42,9 +42,9 @@ dev = [
 spec-drift = "spec_drift:main"
 
 [project.urls]
-Homepage = "https://github.com/buildworld-ai/spec-drift"
-Repository = "https://github.com/buildworld-ai/spec-drift"
-Issues = "https://github.com/buildworld-ai/spec-drift/issues"
+Homepage = "https://github.com/Rowusuduah/spec-drift"
+Repository = "https://github.com/Rowusuduah/spec-drift"
+Issues = "https://github.com/Rowusuduah/spec-drift/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["spec_drift"]

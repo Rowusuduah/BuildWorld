@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "prompt-lock"
+name = "inject-lock"
 version = "0.1.0"
 description = "Git-native prompt regression testing with judge calibration for LLM CI/CD pipelines"
 readme = "README.md"
@@ -43,9 +43,9 @@ dev = [
 prompt-lock = "prompt_lock.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/buildworld-ai/prompt-lock"
-Repository = "https://github.com/buildworld-ai/prompt-lock"
-Issues = "https://github.com/buildworld-ai/prompt-lock/issues"
+Homepage = "https://github.com/Rowusuduah/prompt-lock"
+Repository = "https://github.com/Rowusuduah/prompt-lock"
+Issues = "https://github.com/Rowusuduah/prompt-lock/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/prompt_lock"]
@@ -53,6 +53,7 @@ packages = ["src/prompt_lock"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-v --tb=short"
+pythonpath = ["src"]
 
 [tool.ruff]
 line-length = 100

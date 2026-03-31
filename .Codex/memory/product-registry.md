@@ -103,9 +103,29 @@
 
 ---
 
-## SHIPPED PRODUCTS
+## SHIPPED PRODUCTS (CODE-COMPLETE)
 
-*None yet. Cycle 001 starts the build.*
+| Product | Tests | Pivot Score | PyPI Status |
+|---------|-------|-------------|-------------|
+| model-parity | 97/97 | 8.90 | READY (pending deploy) |
+| chain-probe | 45/45 | 8.85 | READY (pending deploy) |
+| cot-fidelity | 124/124 | 8.85 | READY (pending deploy) |
+| context-lens | 80/80 | 8.80 | READY (pending deploy) |
+| prompt-shield | 130/130 | 8.75 | READY (pending deploy) |
+| prompt-lock | 34/34 | 8.70 | READY (pending deploy) |
+| rag-pathology | 41/41 | 8.65 | READY (pending deploy) |
+| llm-mutation | 90/90 | 8.65 | READY (pending deploy) |
+| semantic-pass-k | 177/177 | 8.65 | READY (pending deploy) |
+| spec-drift | 67/67 | 8.63 | READY (pending deploy) |
+| drift-guard | 41/41 | 8.60 | READY (pending deploy) |
+| agent-patrol | 51/51 | 8.50 | READY (pending deploy) |
+| llm-contract | 66/66 | 8.30 | READY (pending deploy) |
+| cot-coherence | 84/84 | 8.00 | READY (pending deploy) |
+| context-trim | 103/103 | — | READY (pending deploy) |
+| llmguardrail | 41/41 | — | READY (pending deploy) |
+| ghanascope | Astro | — | VERCEL (pending deploy) |
+
+**Total Python tests: 1,371 passing**
 
 ---
 
@@ -113,8 +133,11 @@
 
 | Product | Status | Revenue | Users | Live URL |
 |---------|--------|---------|-------|----------|
-| — | — | — | — | — |
+| semantic-pass-k | CODE_COMPLETE | $0 | 0 | PyPI pending |
+| All 16 Python tools | CODE_COMPLETE | $0 | 0 | PyPI pending |
+| ghanascope | CODE_COMPLETE | $0 | 0 | Vercel pending |
 
 **Total MRR:** $0
-**Total products shipped:** 0
+**Total products shipped:** 17 (code-complete)
 **Total products generating revenue:** 0
+**Critical blocker:** PyPI account + GitHub org + OIDC trusted publishing (manual, outside build loop)

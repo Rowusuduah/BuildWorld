@@ -9,7 +9,7 @@
 
 | Date | Product | Amount (USD) | Source | Notes |
 |------|---------|-------------|--------|-------|
-| — | — | — | — | No revenue yet |
+| — | — | — | — | No revenue yet — 17 products code-complete, none deployed |
 
 ---
 

@@ -9,7 +9,7 @@ description = "Mutation testing for LLM prompts. Find the gaps in your eval suit
 readme = "README.md"
 license = { text = "MIT" }
 authors = [
-    { name = "BuildWorld", email = "build@buildworld.dev" }
+    { name = "Richmond Owusu Duah", email = "Rowusuduah@users.noreply.github.com" }
 ]
 keywords = [
     "ai", "llm", "mutation-testing", "prompt-testing", "eval",
@@ -41,9 +41,9 @@ dev = [
 mutate = "llm_mutation:_cli_main"
 
 [project.urls]
-Homepage = "https://github.com/buildworld-ai/llm-mutation"
-Repository = "https://github.com/buildworld-ai/llm-mutation"
-Issues = "https://github.com/buildworld-ai/llm-mutation/issues"
+Homepage = "https://github.com/Rowusuduah/llm-mutation"
+Repository = "https://github.com/Rowusuduah/llm-mutation"
+Issues = "https://github.com/Rowusuduah/llm-mutation/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["llm_mutation"]

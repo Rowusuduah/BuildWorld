@@ -55,10 +55,10 @@ dev = [
 llm-contract = "llm_contract.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/buildworld-ai/llm-contract"
-Repository = "https://github.com/buildworld-ai/llm-contract"
-Issues = "https://github.com/buildworld-ai/llm-contract/issues"
-Changelog = "https://github.com/buildworld-ai/llm-contract/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/Rowusuduah/llm-contract"
+Repository = "https://github.com/Rowusuduah/llm-contract"
+Issues = "https://github.com/Rowusuduah/llm-contract/issues"
+Changelog = "https://github.com/Rowusuduah/llm-contract/blob/main/CHANGELOG.md"
 
 [tool.hatch.build.targets.sdist]
 include = ["llm_contract/", "tests/", "README.md", "LICENSE"]

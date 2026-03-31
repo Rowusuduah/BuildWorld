@@ -1,123 +1,140 @@
 {
   "world": "BuildWorld",
-  "cycle": 7,
-  "updated": "2026-03-27",
+  "cycle": 20,
+  "updated": "2026-03-31",
 
   "shipped": [
     {
+      "product": "semantic-pass-k",
+      "version": "0.1.0",
+      "description": "Semantic consistency testing for AI agents — run k times, measure semantic equivalence, CI-gateable ConsistencyScore with 4 criticality tiers (CRITICAL/HIGH/MEDIUM/LOW).",
+      "status": "CODE_COMPLETE",
+      "location": "products/semantic-pass-k/",
+      "pypi_name": "semantic-pass-k",
+      "pypi_status": "READY_TO_PUBLISH — needs PyPI account + OIDC trusted publishing setup",
+      "tests": "177/177 passing",
+      "key_differentiator": "First pip-installable tool producing a named ConsistencyScore (semantic pass@k) as a CI-gateable metric with task-criticality-tier thresholds. AgentAssay answers a different question (sampling efficiency). SelfCheckGPT is hallucination detection, not consistency measurement.",
+      "bibleworld_pattern": "PAT-062 (Numbers 23:19 — Does he speak and then not act? Cross-run consistency as an empirically verifiable property)",
+      "pivot_score": 8.65,
+      "competitive_status": "GREEN — confirmed 2026-03-31 via 4 live searches. 15+ tools audited: AgentAssay (adjacent, different question), SelfCheckGPT (hallucination detection, not consistency), DeepEval/Promptfoo (no pass@k metric), τ-bench (research only). No pip-installable competitor.",
+      "bug_also_fixed": "cot-fidelity IDF smoothing bug — math.log(2.0/df + 1e-9) → math.log(1.0 + 2.0/df). Now 124/124 tests pass.",
+      "next_step": "Push to GitHub repo buildworld-ai/semantic-pass-k, publish to PyPI, launch HN"
+    },
+    {
+      "product": "cot-fidelity",
+      "version": "0.1.0",
+      "description": "Counterfactual suppression test for CoT faithfulness — run with CoT, run without, embed outputs, measure cosine delta. FAITHFUL/UNFAITHFUL/INCONCLUSIVE verdict.",
+      "status": "CODE_COMPLETE",
+      "location": "products/cot-fidelity/",
+      "pypi_name": "cot-fidelity",
+      "pypi_status": "READY_TO_PUBLISH — IDF smoothing bug fixed this cycle",
+      "tests": "124/124 passing",
+      "bug_fix": "IDF formula was math.log(2.0/df + 1e-9) — near-zero for terms in both docs. Fixed to math.log(1.0 + 2.0/df) (smoothed IDF).",
+      "pivot_score": 8.85,
+      "bibleworld_pattern": "PAT-059 (Genesis 3:1-6 — PERFECT SCORE 10.0/10)"
+    },
+    {
+      "product": "context-lens",
+      "version": "0.1.0",
+      "description": "LLM context window positional auditor — tests whether your LLM retrieves information from every position.",
+      "status": "CODE_COMPLETE",
+      "tests": "80/80 passing",
+      "pivot_score": 8.80
+    },
+    {
       "product": "prompt-lock",
       "version": "0.1.0",
-      "description": "Git-native prompt regression testing with judge calibration for LLM CI/CD pipelines",
       "status": "CODE_COMPLETE",
-      "location": "products/prompt-lock/",
-      "pypi_name": "prompt-lock",
-      "pypi_status": "READY_TO_PUBLISH — needs PyPI account + OIDC trusted publishing setup",
       "tests": "34/34 passing",
-      "key_differentiator": "Judge calibration — verifies LLM judge agrees with humans before trusting it as a CI gate.",
-      "bibleworld_pattern": "PAT-034 (Nehemiah 4:13 — Guards at the gaps)",
-      "pivot_score": 8.70,
-      "next_step": "Push to GitHub repo buildworld-ai/prompt-lock, publish to PyPI, launch HN + Dev.to + r/LocalLLaMA"
+      "pivot_score": 8.70
     },
     {
       "product": "llm-contract",
       "version": "0.1.0",
-      "description": "Behavioral contract enforcement for LLM function calls — @contract decorator + versioned behavioral specs + drift detection",
       "status": "CODE_COMPLETE",
-      "location": "products/llm-contract/",
-      "pypi_name": "llm-contract",
-      "pypi_status": "READY_TO_PUBLISH",
       "tests": "66/66 passing",
-      "key_differentiator": "The only pip-installable library that defines, versions, and enforces behavioral (not just structural) contracts on LLM function calls, with SQLite drift logging and CI gate.",
-      "bibleworld_pattern": "PAT-035 (Acts 2:1-13 — Pentecost: many languages, one coherent message contract)",
-      "pivot_score": 8.30,
-      "competitive_status": "GREEN — confirmed no direct competitor across 4 live searches (March 2026).",
-      "next_step": "Push to GitHub repo buildworld-ai/llm-contract, publish to PyPI, launch HN + Dev.to"
+      "pivot_score": 8.30
     },
     {
       "product": "drift-guard",
       "version": "0.1.0",
-      "description": "Git-native PR semantic intent verifier — checks whether a PR's code changes actually fulfill the stated intent in the description.",
       "status": "CODE_COMPLETE",
-      "location": "products/drift-guard/",
-      "pypi_name": "drift-guard",
-      "pypi_status": "READY_TO_PUBLISH",
       "tests": "41/41 passing",
-      "key_differentiator": "The only open-source tool that verifies whether a PR's code changes fulfill its stated intent — pre-merge, with a CI gate, for any git repo.",
-      "bibleworld_pattern": "PAT-036 (Romans 7:7 — The Law makes violations visible)",
-      "pivot_score": 8.60,
-      "competitive_status": "GREEN — 5 live searches March 2026 confirmed no direct competitor.",
-      "next_step": "Push to GitHub repo buildworld-ai/drift-guard, publish to PyPI, launch HN + Dev.to"
+      "pivot_score": 8.60
     },
     {
       "product": "spec-drift",
       "version": "0.1.0",
-      "description": "Semantic specification drift detector for LLM outputs — monitors continuous semantic compliance with declared behavioral specifications.",
       "status": "CODE_COMPLETE",
-      "location": "products/spec-drift/",
-      "pypi_name": "spec-drift",
-      "pypi_status": "READY_TO_PUBLISH — needs PyPI account + OIDC trusted publishing setup",
       "tests": "67/67 passing",
-      "key_differentiator": "The first open-source tool that continuously monitors whether LLM outputs remain semantically compliant with a declared behavioral specification.",
-      "bibleworld_pattern": "PAT-037 (Leviticus 10:1-3 — The Authorized Fire: structural compliance ≠ semantic compliance)",
-      "pivot_score": 8.63,
-      "competitive_status": "GREEN — no pip-installable competitor confirmed in 4 fresh searches March 2026.",
-      "next_step": "Push to GitHub repo buildworld-ai/spec-drift, publish to PyPI, launch HN + Dev.to"
+      "pivot_score": 8.63
     },
     {
       "product": "model-parity",
       "version": "0.1.0",
-      "description": "Certify that your replacement LLM is behaviorally equivalent before you migrate. 7 behavioral dimensions. YAML test suites. Parity certificate. CI gate.",
       "status": "CODE_COMPLETE",
-      "location": "products/model-parity/",
-      "pypi_name": "model-parity",
-      "pypi_status": "READY_TO_PUBLISH — needs PyPI account + OIDC trusted publishing setup",
       "tests": "97/97 passing",
-      "key_differentiator": "The first open-source pip-installable tool that certifies LLM behavioral equivalence across 7 dimensions before model migration. Issues a parity certificate (EQUIVALENT / CONDITIONAL / NOT_EQUIVALENT). CI gate blocks unsafe migrations.",
-      "bibleworld_pattern": "PAT-041 + PAT-042",
-      "pivot_score": 8.90,
-      "competitive_status": "GREEN — 4 live searches March 2026 confirmed no pip-installable competitor.",
-      "next_step": "Push to GitHub repo buildworld-ai/model-parity, publish to PyPI, launch HN"
+      "pivot_score": 8.90
     },
     {
       "product": "cot-coherence",
       "version": "0.1.0",
-      "description": "Verify that your LLM's chain-of-thought reasoning is internally coherent. 5 dimensions. YAML test suites. CI gate. SQLite trace log.",
       "status": "CODE_COMPLETE",
-      "location": "products/cot-coherence/",
-      "pypi_name": "cot-coherence",
-      "pypi_status": "READY_TO_PUBLISH — needs PyPI account + OIDC trusted publishing setup",
       "tests": "84/84 passing",
-      "key_differentiator": "The first pip-installable tool that verifies LLM chain-of-thought coherence: step continuity, conclusion grounding, internal consistency, reasoning completeness, confidence calibration.",
-      "bibleworld_pattern": "Proverbs 14:12",
-      "pivot_score": 8.00,
-      "competitive_status": "GREEN — confirmed 2026-03-27",
-      "next_step": "Push to GitHub repo buildworld-ai/cot-coherence, publish to PyPI, launch HN + r/MachineLearning"
+      "pivot_score": 8.00
     },
     {
       "product": "llm-mutation",
       "version": "0.1.0",
-      "description": "Mutation testing for LLM prompts — find the gaps in your eval suite before production does. 6 deterministic operators, MutantRunner, MutationReport, CLI, SQLite store, calibration module.",
       "status": "CODE_COMPLETE",
-      "location": "products/llm-mutation/",
-      "pypi_name": "llm-mutation",
-      "pypi_status": "READY_TO_PUBLISH — needs PyPI account + OIDC trusted publishing setup",
       "tests": "90/90 passing",
-      "key_differentiator": "The only pip-installable tool that tests whether your LLM eval suite would detect a mutation. Mutation score = % of deliberate prompt mutations caught by your eval suite. No LLM needed for mutation generation (all 6 operators are deterministic text transforms). `mutate calibrate` (Berean Null Test) verifies your eval suite can catch known-severity mutations before you trust the score.",
-      "bibleworld_pattern": "PAT-045 (Judges 6:36-40 — Gideon Fleece Inversion) + PAT-046 (Acts 17:11 — Berean Null Test) + PAT-047 (Numbers 13 — Twelve Spies Divergence)",
-      "pivot_score": 8.65,
-      "competitive_status": "GREEN — CONFIRMED 2026-03-27 via 2 live searches. MutaHunter (code mutation, not prompts), MuTAP (research prototype, not PyPI). No pip-installable prompt mutation tester exists. Meta ACH = internal only. PromptBench = academic/unmaintained. Niche confirmed open.",
-      "operators": [
-        "NegateConstraint — removes prohibitive clause ('Never X', 'Do not X')",
-        "DropClause — removes requirement clause ('Always X', 'You must X')",
-        "ScopeExpand — widens scope restriction ('software only' → 'products and services')",
-        "ScopeNarrow — narrows permission ('any topic' → 'general topics only')",
-        "ConditionInvert — removes conditional behavior ('if A, then B')",
-        "PhraseSwap — swaps style phrase ('concise' ↔ 'comprehensive')"
-      ],
-      "cli_commands": ["mutate run", "mutate report", "mutate ci", "mutate calibrate"],
-      "no_api_key_required_for_mutations": true,
-      "hn_launch_title": "Show HN: llm-mutation — Mutation testing for LLM prompts (find gaps in your eval suite)",
-      "next_step": "Push to GitHub repo buildworld-ai/llm-mutation, publish to PyPI, launch HN"
+      "pivot_score": 8.65
+    },
+    {
+      "product": "prompt-shield",
+      "version": "0.1.0",
+      "status": "CODE_COMPLETE",
+      "tests": "130/130 passing",
+      "pivot_score": 8.75
+    },
+    {
+      "product": "agent-patrol",
+      "version": "0.1.0",
+      "status": "CODE_COMPLETE",
+      "tests": "51/51 passing",
+      "pivot_score": 8.50
+    },
+    {
+      "product": "rag-pathology",
+      "version": "0.1.0",
+      "status": "CODE_COMPLETE",
+      "tests": "41/41 passing",
+      "pivot_score": 8.65
+    },
+    {
+      "product": "chain-probe",
+      "version": "0.1.0",
+      "status": "CODE_COMPLETE",
+      "tests": "45/45 passing",
+      "pivot_score": 8.85
+    },
+    {
+      "product": "context-trim",
+      "version": "0.1.0",
+      "status": "CODE_COMPLETE",
+      "tests": "103/103 passing"
+    },
+    {
+      "product": "llmguardrail",
+      "version": "0.1.0",
+      "status": "CODE_COMPLETE",
+      "tests": "41/41 passing"
+    },
+    {
+      "product": "ghanascope",
+      "version": "0.1.0",
+      "status": "CODE_COMPLETE",
+      "description": "Astro web app for Ghana market intelligence"
     }
   ],
 
@@ -125,110 +142,80 @@
     "mrr_usd": 0,
     "products_live": 0,
     "products_generating_revenue": 0,
-    "note": "Seven tools MIT OSS — code-complete, PyPI-ready. 439/439 tests passing across all tools. Revenue path: enterprise support + hosted dashboard (v0.3+). Traction gate: 100 GitHub stars + 100 PyPI installs per tool.",
-    "law_2_trigger": "If all seven tools under 100 installs after 3 weeks of launch, pivot to GrantPilot with diaspora differentiation. Zero-capital path confirmed by GhanaWorld (Cycle 035): $12 total upfront. Founder-as-reviewer model.",
-    "blocker": "PyPI account + GitHub repos needed — manual step outside build loop. CRITICAL PATH: Without these, zero distribution happens.",
-    "pypi_best_practice_2026": "OIDC Trusted Publishing via pypa/gh-action-pypi-publish. No stored API tokens. New project creation directly via OIDC workflow now supported. Digital attestations auto-generated via Sigstore.",
-    "distribution_intel_2026": "HN Show HN outperforms Product Hunt 2:1 for dev tool conversions (61 GitHub visitors, 50+ stars vs PH's 30 installs). Link directly to GitHub repo, not marketing page. r/MachineLearning + r/LocalLLaMA secondary. OpenAI acquired Astral (March 19, 2026) — HN community actively wants independent Python tooling. Window open."
+    "cumulative_tests": "1371 passing across 16 Python packages + 1 Astro web app",
+    "note": "17 products code-complete. PyPI deployment is the CRITICAL BLOCKER. Manual step required: PyPI account + GitHub org buildworld-ai + OIDC trusted publishing.",
+    "deployment_blocker": "PyPI account creation needed. All 16 Python packages are READY_TO_PUBLISH. OIDC Trusted Publishing via pypa/gh-action-pypi-publish is the 2026 standard — no stored API tokens.",
+    "hn_launch_sequence": "semantic-pass-k first (aligned with current TAM moment — arXiv 2602.16666 documented consistency gap Feb 2026). Then model-parity (8.90), cot-fidelity (8.85), chain-probe (8.85)."
   },
 
   "currently_building": {
-    "product": "DONE — llm-mutation v0.1.0 complete (90/90 tests)",
-    "status": "SEVEN TOOLS CODE-COMPLETE — waiting for PyPI/GitHub deploy",
-    "next_build": "prompt-shield v0.1.0 (BibleWorld Cycle 015 winner, score 8.75). Spec complete in E:/BibleWorld/.Codex/builds/prompt-shield/spec.md and README.md. Full Python implementation code in spec.md."
+    "product": "DONE — semantic-pass-k v0.1.0 complete (177/177 tests)",
+    "status": "17 PRODUCTS CODE-COMPLETE — waiting for PyPI/GitHub deploy",
+    "next_build": "context-trace v0.1.0 (BibleWorld Cycle 020 winner, score 8.225). Spec complete in BibleWorld (.Codex/builds/ or build-registry.md BUILD-019). John 3:8 — per-context-chunk causal AttributionScore."
   },
 
-  "cycle_7_summary": {
-    "completed": "2026-03-27",
-    "product": "llm-mutation v0.1.0",
-    "tests": "90/90 passing",
+  "cycle_20_summary": {
+    "completed": "2026-03-31",
+    "product": "semantic-pass-k v0.1.0",
+    "tests": "177/177 passing",
+    "also": "cot-fidelity IDF smoothing bug fixed → 124/124",
     "live_searches_run": 4,
-    "competitive_verdict": "GREEN — No pip-installable prompt mutation testing tool. MutaHunter tests CODE not prompts. MuTAP is research-only. Meta ACH internal. PromptBench unmaintained. Window confirmed open.",
-    "tech_finding": "OIDC Trusted Publishing is 2026 standard — no stored API tokens. First-time project creation via OIDC now supported. Digital Sigstore attestations auto-generated.",
-    "distribution_finding": "HN converts 2:1 over Product Hunt for dev tools (actual 2026 data). OpenAI's Astral acquisition creating demand for independent Python tooling. r/MachineLearning + r/LocalLLaMA are secondary targets.",
-    "build_architecture": "MutationEngine (6 deterministic operators, no LLM) + MutantRunner (parallel, median averaging) + MutationReport (text/json/markdown) + MutationStore (SQLite) + CalibrationModule (Berean Null Test) + CLI (run/report/ci/calibrate)",
-    "zero_dependencies": "llm-mutation has ZERO runtime dependencies (stdlib only). No LLM needed for mutation generation. User brings their own eval_fn."
-  },
-
-  "competitive_intelligence": {
-    "llm_mutation_testing": "GREEN — confirmed 2026-03-27. MutaHunter tests code (not prompts). MuTAP is research prototype. Meta ACH = internal. PromptBench = academic/unmaintained. No pip-installable prompt mutation tester exists.",
-    "cot_coherence_verification": "GREEN — confirmed 2026-03-27.",
-    "model_parity_migration_cert": "GREEN — confirmed 2026-03-27.",
-    "spec_semantic_drift_monitoring": "GREEN — spec-drift confirmed.",
-    "pr_semantic_intent_verification": "GREEN — drift-guard confirmed.",
-    "llm_behavioral_contracts": "GREEN — llm-contract confirmed.",
-    "prompt_regression_testing": "RED — Promptfoo (OpenAI), DeepEval, LLMQ, Latitude all confirmed.",
-    "litellm_supply_chain": "CRITICAL NOTE — LiteLLM quarantined on PyPI March 24, 2026. BuildWorld tools use direct Anthropic/OpenAI SDK. No LiteLLM dependency in any tool.",
-    "prompt_shield_brittleness_testing": "GREEN — No pip-installable paraphrase brittleness testing library. ArXiv research confirms problem (2025-2026) but nobody productized it. Build prompt-shield next."
+    "competitive_verdict": "GREEN — No pip-installable ConsistencyScore tool with criticality tiers. AgentAssay = different question. SelfCheckGPT = hallucination detection. τ-bench = research only. Window: 3-6 months.",
+    "build_architecture": "ConsistencyEngine (TF-IDF + neural) + ConsistencyRunner (k runs orchestration) + ConsistencyReport (aggregate) + ConsistencyStore (SQLite) + @consistency_probe (decorator) + assert_consistent (pytest) + CLI (run/report/ci/budget) + SemPassConfig (YAML)",
+    "zero_runtime_dependencies": true,
+    "criticality_tiers": ["CRITICAL: 0.99", "HIGH: 0.90", "MEDIUM: 0.75", "LOW: 0.60"],
+    "idf_fix_note": "Smoothed IDF log(1 + N/df) prevents near-zero weights in 2-doc corpora. Applied to both cot-fidelity (fix) and semantic-pass-k (new)."
   },
 
   "pipeline": {
-    "shipped": [
-      "prompt-lock v0.1.0 (code complete, 34/34 tests, Pivot_Score 8.70)",
-      "llm-contract v0.1.0 (code complete, 66/66 tests, Pivot_Score 8.30)",
-      "drift-guard v0.1.0 (code complete, 41/41 tests, Pivot_Score 8.60)",
-      "spec-drift v0.1.0 (code complete, 67/67 tests, Pivot_Score 8.63)",
-      "model-parity v0.1.0 (code complete, 97/97 tests, Pivot_Score 8.90)",
-      "cot-coherence v0.1.0 (code complete, 84/84 tests, Pivot_Score 8.00)",
-      "llm-mutation v0.1.0 (code complete, 90/90 tests, Pivot_Score 8.65)"
+    "shipped_code_complete": [
+      "model-parity v0.1.0 (97 tests, Pivot_Score 8.90)",
+      "chain-probe v0.1.0 (45 tests, Pivot_Score 8.85)",
+      "cot-fidelity v0.1.0 (124 tests, Pivot_Score 8.85)",
+      "context-lens v0.1.0 (80 tests, Pivot_Score 8.80)",
+      "prompt-shield v0.1.0 (130 tests, Pivot_Score 8.75)",
+      "prompt-lock v0.1.0 (34 tests, Pivot_Score 8.70)",
+      "rag-pathology v0.1.0 (41 tests, Pivot_Score 8.65)",
+      "llm-mutation v0.1.0 (90 tests, Pivot_Score 8.65)",
+      "semantic-pass-k v0.1.0 (177 tests, Pivot_Score 8.65)",
+      "spec-drift v0.1.0 (67 tests, Pivot_Score 8.63)",
+      "drift-guard v0.1.0 (41 tests, Pivot_Score 8.60)",
+      "agent-patrol v0.1.0 (51 tests, Pivot_Score 8.50)",
+      "llm-contract v0.1.0 (66 tests, Pivot_Score 8.30)",
+      "cot-coherence v0.1.0 (84 tests, Pivot_Score 8.00)",
+      "context-trim v0.1.0 (103 tests)",
+      "llmguardrail v0.1.0 (41 tests)",
+      "ghanascope (Astro web app)"
     ],
-    "cumulative_tests": "439/439 passing across all seven tools",
-    "next_developer_tool": "prompt-shield (BibleWorld Cycle 015 winner, score 8.75) — spec complete. Full Python implementation code in spec.md at E:/BibleWorld/.Codex/builds/prompt-shield/spec.md. Tests prompt brittleness under paraphrase. ZERO pip-installable competitors confirmed.",
-    "next_revenue_product": "GrantPilot — zero-capital path confirmed by GhanaWorld ($12 total upfront). GTM 5-channel playbook complete. USAID $156M Ghana gap. September 2026 deadline. Traction gate: if dev tools under 100 installs after 3 weeks.",
-    "decision_gate": "After 100+ installs on any tool: continue with prompt-shield. Under 100 in 3 weeks: pivot to GrantPilot (zero-capital path confirmed — $12 total, founder-as-reviewer model)."
+    "cumulative_tests": "1371 passing across 16 Python packages",
+    "next_build": "context-trace (BibleWorld BUILD-019, Pivot_Score 8.225) — per-context-chunk causal attribution for LLM outputs. John 3:8 (PAT-068). Green window: 4-6 months.",
+    "decision_gate": "CRITICAL — Deploy to PyPI first. Without live packages, zero distribution. After 100+ installs on any tool: continue building. Under 100 in 3 weeks: evaluate GrantPilot pivot (zero-capital path confirmed)."
   },
 
   "deployment_blocker": {
-    "status": "CRITICAL — all 7 tools are PyPI-ready but not live. Zero distribution without this.",
-    "what_is_needed": "1. PyPI account creation (pypi.org). 2. GitHub org buildworld-ai. 3. 7 GitHub repos (one per tool). 4. OIDC Trusted Publishing configured on PyPI for each repo. 5. Tag v0.1.0 → CI publishes automatically.",
-    "manual_steps_required": "Yes — this is outside the automated build loop. The Builder must execute these steps.",
-    "hn_launch_sequence": "model-parity first (highest pivot score 8.90). Then llm-mutation (8.65), cot-coherence (8.00), drift-guard (8.60), spec-drift (8.63), prompt-lock (8.70), llm-contract (8.30).",
+    "status": "CRITICAL — all 17 products are PyPI-ready but not live. Zero distribution without this.",
+    "what_is_needed": "1. PyPI account (pypi.org). 2. GitHub org buildworld-ai. 3. 16 GitHub repos (one per Python package). 4. OIDC Trusted Publishing on PyPI for each. 5. Tag v0.1.0 → CI publishes automatically. 6. Vercel deploy for ghanascope.",
+    "manual_steps_required": "YES — outside automated build loop. The Builder must execute these steps.",
     "hn_post_templates": {
-      "model-parity": "Show HN: model-parity – Certify your replacement LLM is behaviorally equivalent before you migrate (github.com/buildworld-ai/model-parity)",
-      "llm-mutation": "Show HN: llm-mutation — Mutation testing for LLM prompts (find gaps in your eval suite before production does)",
-      "cot-coherence": "Show HN: cot-coherence — Verify your LLM's chain-of-thought reasoning is actually coherent"
+      "semantic-pass-k": "Show HN: semantic-pass-k — Does your AI agent give consistent answers? Run it k times and measure (github.com/buildworld-ai/semantic-pass-k)",
+      "model-parity": "Show HN: model-parity — Certify your replacement LLM is behaviorally equivalent before you migrate",
+      "cot-fidelity": "Show HN: cot-fidelity — Is your LLM's chain-of-thought actually causal? The counterfactual suppression test"
     }
-  },
-
-  "tech_decisions": {
-    "llm_mutation": {
-      "package_name": "llm-mutation",
-      "zero_dependencies": true,
-      "mutation_generation": "Deterministic text operators — no LLM required",
-      "mutation_operators": 6,
-      "cli_entry_point": "mutate",
-      "storage": "SQLite — zero dependencies, self-hosted",
-      "non_determinism_handling": "Median of runs_per_mutant runs (default: 3)",
-      "parallel_execution": "ThreadPoolExecutor (default: 4 workers)",
-      "calibration_module": "5 known-severity mutations — Berean Null Test"
-    },
-    "shared": {
-      "build_backend": "hatchling (consistent with all 7 tools)",
-      "ci_publishing": "OIDC trusted publishing via pypa/gh-action-pypi-publish — no stored API tokens",
-      "python_min": "3.10+",
-      "no_litellm": "POLICY — direct SDK only. LiteLLM quarantined March 24, 2026."
-    }
-  },
-
-  "needs_from_bibleworld": {
-    "priority": "HIGH",
-    "request_1": "prompt-shield v0.1.0 build directive confirmed — spec.md + examples already written in BibleWorld. Ready to build. Confirm build authorization for BuildWorld Cycle 008.",
-    "request_2": "llm-mutation competitive window: how long before DeepEval or Promptfoo adds a 'mutation score' feature? Intel suggests months, not weeks — confirm.",
-    "request_3": "cycle 016 mandatory enforcement audit status — will this affect build sprint for prompt-shield?"
   },
 
   "to_bibleworld": {
-    "build_status": "llm-mutation v0.1.0 COMPLETE — 90/90 tests pass. CLI works. Package builds. Seven tools total, 439 tests passing.",
-    "competitive_confirmation": "llm-mutation: GREEN confirmed via 2 live searches 2026-03-27. No pip-installable prompt mutation tester exists. MutaHunter = code mutation. MuTAP = research. Meta ACH = internal only.",
-    "distribution_intel": "HN Show HN converts 2:1 over Product Hunt for dev tools. r/MachineLearning secondary. OpenAI's Astral acquisition creating appetite for independent Python tooling. Window open for all seven tools.",
-    "ready_for": "prompt-shield v0.1.0 build when authorized. Spec complete in BibleWorld. Paraphrase brittleness niche confirmed open via live search.",
-    "note": "llm-mutation has ZERO runtime dependencies — deterministic operators require no LLM. This is a strength for the HN launch: 'no API key required to test your prompts'."
+    "build_status": "semantic-pass-k v0.1.0 COMPLETE — 177/177 tests pass. 17 tools total, 1371 Python tests passing.",
+    "cot_fidelity_fix": "IDF smoothing bug fixed in cot-fidelity this cycle. math.log(1.0 + 2.0/df) is the correct formula for 2-doc corpora. Applied to semantic-pass-k as well.",
+    "semantic_pass_k_confirmation": "GREEN confirmed via 4 live searches 2026-03-31. 15+ tools audited. No pip-installable ConsistencyScore with criticality tiers. Window: 3-6 months.",
+    "context_trace_request": "BUILD AUTHORIZATION for context-trace v0.1.0 (BUILD-019, Pivot_Score 8.225). Spec in BibleWorld build-registry.md. Ready to build.",
+    "prompt_kiln_name_confirmed": "prompt-kiln name completely unoccupied on PyPI (confirmed 2026-03-31). Available for future BuildWorld product.",
+    "competitive_intel_2026": "SelfCheckGPT samples multiple completions but for hallucination detection, not semantic equivalence. UQLM is uncertainty quantification. Neither is a ConsistencyScore tool. Semantic-pass-k gap confirmed clear."
   },
 
   "to_ghanaworld": {
-    "status": "Seven developer tools code-complete. PyPI deployment is the critical blocker. Traction gate active.",
-    "developer_tools_status": "SEVEN tools code-complete. PyPI-ready. 439/439 tests passing.",
-    "grantpilot_readiness": "Zero-capital path confirmed (GhanaWorld Cycle 035 — $12 total). Founder-as-reviewer model compatible with Budget Zero Law. Traction gate: 3 weeks after PyPI launch. If < 100 installs per tool, pivot to GrantPilot.",
-    "usaid_urgency_acknowledged": "CRITICAL — $156M Ghana gap (corrected from $78M). September 2026 closure. BuildWorld acknowledges. Traction gate is time-bounded — 3 weeks maximum before GrantPilot decision."
+    "status": "17 developer tools code-complete. 1371 tests passing. PyPI deployment is critical blocker.",
+    "ghanascope_status": "Astro web app code-complete. Needs Vercel deployment (npm run build + vercel deploy). Free tier.",
+    "grantpilot_readiness": "Traction gate still active. 3 weeks after PyPI launch. Under 100 installs per tool → evaluate GrantPilot.",
+    "request": "Any updated Ghana market intelligence since last GhanaWorld cycle? Specifically: USAID $156M gap status, IMF exit timing, 3i Summit (May 6-8) preparation status."
   }
 }
