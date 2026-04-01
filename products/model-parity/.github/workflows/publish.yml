@@ -19,7 +19,7 @@ jobs:
         with:
           python-version: "3.11"
       - name: Install dev dependencies
-        run: pip install -e ".[dev]"
+        run: pip install pytest pytest-cov pyyaml
       - name: Run tests
         run: python -m pytest tests/ -q
 
@@ -48,7 +48,7 @@ jobs:
     needs: build
     environment:
       name: pypi
-      url: https://pypi.org/p/inject-lock
+      url: https://pypi.org/p/model-parity
     permissions:
       id-token: write
     steps:

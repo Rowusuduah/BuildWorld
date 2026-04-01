@@ -1,18 +1,18 @@
 {
   "world_name": "BuildWorld",
-  "as_of_cycle": 20,
-  "last_updated": "2026-03-31",
+  "as_of_cycle": 22,
+  "last_updated": "2026-04-01",
   "world_alive": true,
 
   "bibleworld_state": {
-    "cycle": 20,
-    "total_patterns": 69,
+    "cycle": 22,
+    "total_patterns": 77,
     "books_covered": 36,
-    "tools_shipped": 17,
-    "tools_discovered": 2,
-    "next_build": "context-trace",
-    "next_build_score": 8.225,
-    "next_build_domain": "LLM Context Causal Attribution",
+    "tools_shipped": 18,
+    "tools_discovered": 5,
+    "next_build": "livelock-probe v0.1.0 (BUILD-022, Pivot_Score 8.175) — detecting stuck/livelock states in AI agents",
+    "next_build_score": 8.175,
+    "next_build_domain": "AI agent pathology detection",
     "pipeline": [
       {"name": "model-parity", "score": 8.90, "status": "code_complete"},
       {"name": "chain-probe", "score": 8.85, "status": "code_complete"},
@@ -27,11 +27,13 @@
       {"name": "drift-guard", "score": 8.60, "status": "code_complete"},
       {"name": "agent-patrol", "score": 8.50, "status": "code_complete"},
       {"name": "llm-contract", "score": 8.30, "status": "code_complete"},
+      {"name": "context-trace", "score": 8.225, "status": "code_complete"},
       {"name": "cot-coherence", "score": 8.00, "status": "code_complete"},
       {"name": "context-trim", "score": 7.80, "status": "code_complete"},
       {"name": "llmguardrail", "score": 7.60, "status": "code_complete"},
       {"name": "ghanascope", "score": 0.00, "status": "code_complete"},
-      {"name": "context-trace", "score": 8.225, "status": "designed"},
+      {"name": "livelock-probe", "score": 8.175, "status": "spec_complete"},
+      {"name": "invariant-probe", "score": 8.10, "status": "spec_complete"},
       {"name": "prompt-kiln", "score": 7.50, "status": "designed"}
     ]
   },
@@ -53,10 +55,11 @@
     {"name": "cot-fidelity", "version": "0.1.0", "tests": "124/124", "pypi_status": "PENDING"},
     {"name": "llmguardrail", "version": "0.1.0", "tests": "41/41", "pypi_status": "PENDING"},
     {"name": "ghanascope", "version": "0.1.0", "tests": "N/A (Astro)", "pypi_status": "VERCEL_PENDING"},
-    {"name": "semantic-pass-k", "version": "0.1.0", "tests": "177/177", "pypi_status": "PENDING"}
+    {"name": "semantic-pass-k", "version": "0.1.0", "tests": "177/177", "pypi_status": "PENDING"},
+    {"name": "context-trace", "version": "0.1.0", "tests": "102/102", "pypi_status": "PENDING"}
   ],
 
-  "cumulative_tests": "1371 passing across 16 Python packages",
+  "cumulative_tests": "1473 passing across 17 Python packages",
 
   "revenue": {
     "total_lifetime_usd": 0.0,
@@ -65,22 +68,32 @@
     "net_current_month_usd": 0.0,
     "mrr_usd": 0.0,
     "highest_milestone_reached": "NONE",
-    "note": "17 products code-complete. CRITICAL BLOCKER: PyPI account + GitHub org buildworld-ai + OIDC trusted publishing setup needed. Manual step outside build loop."
+    "note": "18 products code-complete (1473 tests). CRITICAL BLOCKER: PyPI account + GitHub org buildworld-ai + OIDC trusted publishing. Manual step outside build loop. 18 GitHub Actions OIDC workflows now created (Cycle 022). DEPLOY.md playbook complete — 10 steps, ~2 hours to execute."
   },
 
   "deployment_status": [
     {
-      "status": "CRITICAL_BLOCKER",
-      "description": "PyPI account not created. All 16 Python packages PyPI-ready but not live.",
-      "required_actions": [
-        "1. Create PyPI account at pypi.org",
-        "2. Create GitHub org: buildworld-ai",
-        "3. Create 16 GitHub repos (one per Python package)",
-        "4. Configure OIDC Trusted Publishing on PyPI for each repo",
-        "5. Tag v0.1.0 on each repo → CI publishes automatically",
-        "6. Deploy ghanascope to Vercel (npm run build + vercel deploy)"
+      "status": "INFRASTRUCTURE_READY",
+      "description": "18 GitHub Actions OIDC publish workflows created (Cycle 022). All packages PyPI-ready. Manual account setup required to activate.",
+      "cycle_022_artifacts": [
+        "products/*/. github/workflows/publish.yml (17 Python packages)",
+        "products/ghanascope/.github/workflows/deploy.yml (Vercel)",
+        "DEPLOY.md (10-step playbook, ~2 hours to execute)",
+        ".Codex/cycles/cycle-022/launch-copy.md (HN posts, tweets, Product Hunt for top 4 products)"
       ],
-      "hn_launch_sequence": "semantic-pass-k → model-parity → cot-fidelity → chain-probe → context-lens → rag-pathology → prompt-shield → llm-mutation → spec-drift → agent-patrol"
+      "required_manual_actions": [
+        "1. Create PyPI account at pypi.org/account/register",
+        "2. Create GitHub org: buildworld-ai",
+        "3. Create 17 GitHub repos + push code",
+        "4. Configure OIDC Trusted Publishing on PyPI (one per package)",
+        "5. Create 'pypi' environment in each GitHub repo",
+        "6. Tag v0.1.0 → CI publishes automatically",
+        "7. Deploy ghanascope to Vercel",
+        "8. Post Show HN for semantic-pass-k",
+        "9. Post to Discord/Reddit channels",
+        "10. Add Stripe after 100+ installs"
+      ],
+      "hn_launch_sequence": "semantic-pass-k → model-parity → cot-fidelity → context-trace → chain-probe → prompt-shield → context-lens → rag-pathology → llm-mutation"
     }
   ],
 
@@ -94,15 +107,39 @@
       "pivot_score": 8.65,
       "pattern": "PAT-062 (Numbers 23:19)",
       "also": "Fixed cot-fidelity IDF smoothing bug (124/124 tests)"
+    },
+    {
+      "cycle": 21,
+      "date": "2026-03-31",
+      "type": "BUILD",
+      "product": "context-trace v0.1.0",
+      "tests": "102/102",
+      "pivot_score": 8.225,
+      "pattern": "PAT-068 (John 3:8 — stochastic source attribution)",
+      "competitive_status": "GREEN — ContextCite (closest competitor) requires logit access, incompatible with hosted APIs",
+      "key_differentiator": "First pip-installable, API-compatible per-context-chunk causal AttributionScore. Works with Claude, GPT-4o, Gemini via Callable[[str], str] runner.",
+      "code_review_score": 9.0
+    },
+    {
+      "cycle": 22,
+      "date": "2026-04-01",
+      "type": "SHIP",
+      "product": "Deployment infrastructure (all 18 products)",
+      "tests": "0 new (1473 total passing)",
+      "artifacts": "18 GitHub Actions OIDC workflows + DEPLOY.md + launch copy for 4 flagship products",
+      "key_decision": "OIDC Trusted Publishing (no stored API tokens) — more secure, current 2026 standard",
+      "new_intel": "BibleWorld C022: livelock-probe (8.175) is next BUILD. GhanaWorld C007: ghanascope demand 8.25, gold $4744, IMF exit imminent.",
+      "code_review_score": 9.5,
+      "next_recommended": "BUILD livelock-probe v0.1.0 (BibleWorld BUILD-022)"
     }
   ],
 
   "world_survival_metrics": {
-    "ship_score": 0.85,
+    "ship_score": 0.87,
     "revenue_score": 0.0,
-    "code_quality": 0.88,
+    "code_quality": 0.90,
     "world_alive": true,
-    "products_shipped": 17,
+    "products_shipped": 18,
     "products_live": 0
   }
 }

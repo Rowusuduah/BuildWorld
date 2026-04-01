@@ -1,7 +1,7 @@
 # BuildWorld Build Log
 ## What Was Built, When, and Where
 
-**Last Updated:** Cycle 000 (initialization)
+**Last Updated:** Cycle 022 (2026-04-01)
 
 ---
 
@@ -26,6 +26,8 @@
 | 015 | llmguardrail v0.1.0 | AI pipeline diagnostic suite (12 engines), 41/41 tests | NO | PyPI pending | $0 |
 | 016 | ghanascope (web app) | Astro intelligence web app for Ghana market | NO | Vercel pending | $0 |
 | 020 | semantic-pass-k v0.1.0 | Agent semantic consistency testing, 177/177 tests | NO | PyPI pending | $0 |
+| 021 | context-trace v0.1.0 | Per-context-chunk causal AttributionScore for LLM outputs, 102/102 tests | NO | PyPI pending | $0 |
+| 022 | SHIP — Deploy infrastructure | 18 GitHub Actions OIDC workflows, DEPLOY.md playbook, launch copy for 4 products | INFRA_READY | Manual deploy steps documented | $0 |
 
 ---
 
@@ -35,6 +37,7 @@
 |---------|----------|-----|--------|------------|
 | semantic-pass-k | PyPI | https://pypi.org/project/semantic-pass-k/ | PENDING | 2026-03-31 |
 | prompt-lock | PyPI | https://pypi.org/project/prompt-lock/ | PENDING | — |
-| All 17 products | PyPI / Vercel | buildworld-ai/* | PENDING MANUAL DEPLOY | — |
+| context-trace | PyPI | https://pypi.org/project/context-trace/ | PENDING | 2026-03-31 |
+| All 18 products | PyPI / Vercel | buildworld-ai/* | INFRASTRUCTURE_READY — execute DEPLOY.md | 2026-04-01 |
 
 *Ship it or it doesn't exist.*

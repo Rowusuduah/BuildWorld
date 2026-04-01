@@ -48,7 +48,7 @@ jobs:
     needs: build
     environment:
       name: pypi
-      url: https://pypi.org/p/inject-lock
+      url: https://pypi.org/p/semantic-pass-k
     permissions:
       id-token: write
     steps:

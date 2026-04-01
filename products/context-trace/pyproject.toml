@@ -1,0 +1,56 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "context-trace"
+version = "0.1.0"
+description = "Per-context-chunk causal AttributionScore for LLM outputs"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+keywords = ["llm", "attribution", "rag", "interpretability", "testing", "ai", "context"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "numpy>=1.24",
+    "click>=8.0",
+    "pyyaml>=6.0",
+    "sentence-transformers>=2.7",
+]
+
+[project.optional-dependencies]
+anthropic = ["anthropic>=0.40"]
+openai   = ["openai>=1.0"]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+]
+
+[project.scripts]
+ctrace = "context_trace.cli:main"
+
+[project.entry-points."pytest11"]
+context-trace = "context_trace.pytest_plugin"
+
+[project.urls]
+Homepage   = "https://github.com/buildworld-ai/context-trace"
+Repository = "https://github.com/buildworld-ai/context-trace"
+Issues     = "https://github.com/buildworld-ai/context-trace/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["context_trace"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts   = "-v"

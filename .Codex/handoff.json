@@ -1,140 +1,43 @@
 {
   "world": "BuildWorld",
-  "cycle": 20,
-  "updated": "2026-03-31",
+  "cycle": 22,
+  "updated": "2026-04-01",
 
   "shipped": [
     {
+      "product": "SHIP — Deployment Infrastructure",
+      "description": "18 GitHub Actions OIDC publish workflows (17 Python packages + 1 Vercel/Astro). DEPLOY.md 10-step playbook. Launch copy for semantic-pass-k, model-parity, cot-fidelity, context-trace.",
+      "status": "INFRASTRUCTURE_COMPLETE",
+      "artifacts": [
+        "products/*/. github/workflows/publish.yml (17 Python packages)",
+        "products/ghanascope/.github/workflows/deploy.yml",
+        "DEPLOY.md (10-step playbook — ~2 hours to execute)",
+        ".Codex/cycles/cycle-022/launch-copy.md"
+      ],
+      "workflow_type": "OIDC Trusted Publishing (pypa/gh-action-pypi-publish@release/v1)",
+      "no_secrets_stored": true,
+      "code_review_score": 9.5
+    },
+    {
+      "product": "context-trace",
+      "version": "0.1.0",
+      "description": "Per-context-chunk causal AttributionScore for LLM outputs",
+      "status": "CODE_COMPLETE",
+      "location": "products/context-trace/",
+      "tests": "102/102 passing",
+      "pivot_score": 8.225,
+      "workflow": "products/context-trace/.github/workflows/publish.yml"
+    },
+    {
       "product": "semantic-pass-k",
       "version": "0.1.0",
-      "description": "Semantic consistency testing for AI agents — run k times, measure semantic equivalence, CI-gateable ConsistencyScore with 4 criticality tiers (CRITICAL/HIGH/MEDIUM/LOW).",
+      "description": "Semantic consistency testing for AI agents — CI-gateable ConsistencyScore with 4 criticality tiers",
       "status": "CODE_COMPLETE",
-      "location": "products/semantic-pass-k/",
-      "pypi_name": "semantic-pass-k",
-      "pypi_status": "READY_TO_PUBLISH — needs PyPI account + OIDC trusted publishing setup",
       "tests": "177/177 passing",
-      "key_differentiator": "First pip-installable tool producing a named ConsistencyScore (semantic pass@k) as a CI-gateable metric with task-criticality-tier thresholds. AgentAssay answers a different question (sampling efficiency). SelfCheckGPT is hallucination detection, not consistency measurement.",
-      "bibleworld_pattern": "PAT-062 (Numbers 23:19 — Does he speak and then not act? Cross-run consistency as an empirically verifiable property)",
       "pivot_score": 8.65,
-      "competitive_status": "GREEN — confirmed 2026-03-31 via 4 live searches. 15+ tools audited: AgentAssay (adjacent, different question), SelfCheckGPT (hallucination detection, not consistency), DeepEval/Promptfoo (no pass@k metric), τ-bench (research only). No pip-installable competitor.",
-      "bug_also_fixed": "cot-fidelity IDF smoothing bug — math.log(2.0/df + 1e-9) → math.log(1.0 + 2.0/df). Now 124/124 tests pass.",
-      "next_step": "Push to GitHub repo buildworld-ai/semantic-pass-k, publish to PyPI, launch HN"
-    },
-    {
-      "product": "cot-fidelity",
-      "version": "0.1.0",
-      "description": "Counterfactual suppression test for CoT faithfulness — run with CoT, run without, embed outputs, measure cosine delta. FAITHFUL/UNFAITHFUL/INCONCLUSIVE verdict.",
-      "status": "CODE_COMPLETE",
-      "location": "products/cot-fidelity/",
-      "pypi_name": "cot-fidelity",
-      "pypi_status": "READY_TO_PUBLISH — IDF smoothing bug fixed this cycle",
-      "tests": "124/124 passing",
-      "bug_fix": "IDF formula was math.log(2.0/df + 1e-9) — near-zero for terms in both docs. Fixed to math.log(1.0 + 2.0/df) (smoothed IDF).",
-      "pivot_score": 8.85,
-      "bibleworld_pattern": "PAT-059 (Genesis 3:1-6 — PERFECT SCORE 10.0/10)"
-    },
-    {
-      "product": "context-lens",
-      "version": "0.1.0",
-      "description": "LLM context window positional auditor — tests whether your LLM retrieves information from every position.",
-      "status": "CODE_COMPLETE",
-      "tests": "80/80 passing",
-      "pivot_score": 8.80
-    },
-    {
-      "product": "prompt-lock",
-      "version": "0.1.0",
-      "status": "CODE_COMPLETE",
-      "tests": "34/34 passing",
-      "pivot_score": 8.70
-    },
-    {
-      "product": "llm-contract",
-      "version": "0.1.0",
-      "status": "CODE_COMPLETE",
-      "tests": "66/66 passing",
-      "pivot_score": 8.30
-    },
-    {
-      "product": "drift-guard",
-      "version": "0.1.0",
-      "status": "CODE_COMPLETE",
-      "tests": "41/41 passing",
-      "pivot_score": 8.60
-    },
-    {
-      "product": "spec-drift",
-      "version": "0.1.0",
-      "status": "CODE_COMPLETE",
-      "tests": "67/67 passing",
-      "pivot_score": 8.63
-    },
-    {
-      "product": "model-parity",
-      "version": "0.1.0",
-      "status": "CODE_COMPLETE",
-      "tests": "97/97 passing",
-      "pivot_score": 8.90
-    },
-    {
-      "product": "cot-coherence",
-      "version": "0.1.0",
-      "status": "CODE_COMPLETE",
-      "tests": "84/84 passing",
-      "pivot_score": 8.00
-    },
-    {
-      "product": "llm-mutation",
-      "version": "0.1.0",
-      "status": "CODE_COMPLETE",
-      "tests": "90/90 passing",
-      "pivot_score": 8.65
-    },
-    {
-      "product": "prompt-shield",
-      "version": "0.1.0",
-      "status": "CODE_COMPLETE",
-      "tests": "130/130 passing",
-      "pivot_score": 8.75
-    },
-    {
-      "product": "agent-patrol",
-      "version": "0.1.0",
-      "status": "CODE_COMPLETE",
-      "tests": "51/51 passing",
-      "pivot_score": 8.50
-    },
-    {
-      "product": "rag-pathology",
-      "version": "0.1.0",
-      "status": "CODE_COMPLETE",
-      "tests": "41/41 passing",
-      "pivot_score": 8.65
-    },
-    {
-      "product": "chain-probe",
-      "version": "0.1.0",
-      "status": "CODE_COMPLETE",
-      "tests": "45/45 passing",
-      "pivot_score": 8.85
-    },
-    {
-      "product": "context-trim",
-      "version": "0.1.0",
-      "status": "CODE_COMPLETE",
-      "tests": "103/103 passing"
-    },
-    {
-      "product": "llmguardrail",
-      "version": "0.1.0",
-      "status": "CODE_COMPLETE",
-      "tests": "41/41 passing"
-    },
-    {
-      "product": "ghanascope",
-      "version": "0.1.0",
-      "status": "CODE_COMPLETE",
-      "description": "Astro web app for Ghana market intelligence"
+      "workflow": "products/semantic-pass-k/.github/workflows/publish.yml",
+      "hn_post": ".Codex/cycles/cycle-022/launch-copy.md#semantic-pass-k",
+      "launch_priority": 1
     }
   ],
 
@@ -142,80 +45,78 @@
     "mrr_usd": 0,
     "products_live": 0,
     "products_generating_revenue": 0,
-    "cumulative_tests": "1371 passing across 16 Python packages + 1 Astro web app",
-    "note": "17 products code-complete. PyPI deployment is the CRITICAL BLOCKER. Manual step required: PyPI account + GitHub org buildworld-ai + OIDC trusted publishing.",
-    "deployment_blocker": "PyPI account creation needed. All 16 Python packages are READY_TO_PUBLISH. OIDC Trusted Publishing via pypa/gh-action-pypi-publish is the 2026 standard — no stored API tokens.",
-    "hn_launch_sequence": "semantic-pass-k first (aligned with current TAM moment — arXiv 2602.16666 documented consistency gap Feb 2026). Then model-parity (8.90), cot-fidelity (8.85), chain-probe (8.85)."
+    "cumulative_tests": "1473 passing across 17 Python packages + 1 Astro web app",
+    "deployment_status": "INFRASTRUCTURE_COMPLETE — execute DEPLOY.md to go live",
+    "time_to_first_install": "~2 hours after executing DEPLOY.md",
+    "stripe_status": "Pending — add after 100+ installs on any tool"
   },
 
-  "currently_building": {
-    "product": "DONE — semantic-pass-k v0.1.0 complete (177/177 tests)",
-    "status": "17 PRODUCTS CODE-COMPLETE — waiting for PyPI/GitHub deploy",
-    "next_build": "context-trace v0.1.0 (BibleWorld Cycle 020 winner, score 8.225). Spec complete in BibleWorld (.Codex/builds/ or build-registry.md BUILD-019). John 3:8 — per-context-chunk causal AttributionScore."
-  },
-
-  "cycle_20_summary": {
-    "completed": "2026-03-31",
-    "product": "semantic-pass-k v0.1.0",
-    "tests": "177/177 passing",
-    "also": "cot-fidelity IDF smoothing bug fixed → 124/124",
-    "live_searches_run": 4,
-    "competitive_verdict": "GREEN — No pip-installable ConsistencyScore tool with criticality tiers. AgentAssay = different question. SelfCheckGPT = hallucination detection. τ-bench = research only. Window: 3-6 months.",
-    "build_architecture": "ConsistencyEngine (TF-IDF + neural) + ConsistencyRunner (k runs orchestration) + ConsistencyReport (aggregate) + ConsistencyStore (SQLite) + @consistency_probe (decorator) + assert_consistent (pytest) + CLI (run/report/ci/budget) + SemPassConfig (YAML)",
-    "zero_runtime_dependencies": true,
-    "criticality_tiers": ["CRITICAL: 0.99", "HIGH: 0.90", "MEDIUM: 0.75", "LOW: 0.60"],
-    "idf_fix_note": "Smoothed IDF log(1 + N/df) prevents near-zero weights in 2-doc corpora. Applied to both cot-fidelity (fix) and semantic-pass-k (new)."
+  "cycle_022_summary": {
+    "completed": "2026-04-01",
+    "type": "SHIP",
+    "artifacts_created": 21,
+    "workflows_created": 18,
+    "deploy_playbook": "DEPLOY.md",
+    "launch_copy_products": ["semantic-pass-k", "model-parity", "cot-fidelity", "context-trace", "ghanascope"],
+    "key_decision": "OIDC Trusted Publishing — no stored secrets, short-lived tokens, official pypa standard",
+    "bibleworld_input": "livelock-probe (BUILD-022, 8.175) confirmed next BUILD target",
+    "ghanaworld_input": "ghanascope demand 8.25 (highest ever), gold $4744, IMF exit imminent"
   },
 
   "pipeline": {
-    "shipped_code_complete": [
-      "model-parity v0.1.0 (97 tests, Pivot_Score 8.90)",
-      "chain-probe v0.1.0 (45 tests, Pivot_Score 8.85)",
-      "cot-fidelity v0.1.0 (124 tests, Pivot_Score 8.85)",
-      "context-lens v0.1.0 (80 tests, Pivot_Score 8.80)",
-      "prompt-shield v0.1.0 (130 tests, Pivot_Score 8.75)",
-      "prompt-lock v0.1.0 (34 tests, Pivot_Score 8.70)",
-      "rag-pathology v0.1.0 (41 tests, Pivot_Score 8.65)",
-      "llm-mutation v0.1.0 (90 tests, Pivot_Score 8.65)",
-      "semantic-pass-k v0.1.0 (177 tests, Pivot_Score 8.65)",
-      "spec-drift v0.1.0 (67 tests, Pivot_Score 8.63)",
-      "drift-guard v0.1.0 (41 tests, Pivot_Score 8.60)",
-      "agent-patrol v0.1.0 (51 tests, Pivot_Score 8.50)",
-      "llm-contract v0.1.0 (66 tests, Pivot_Score 8.30)",
-      "cot-coherence v0.1.0 (84 tests, Pivot_Score 8.00)",
+    "ship_ready": [
+      "semantic-pass-k v0.1.0 (177 tests, 8.65, LAUNCH FIRST)",
+      "model-parity v0.1.0 (97 tests, 8.90)",
+      "cot-fidelity v0.1.0 (124 tests, 8.85)",
+      "chain-probe v0.1.0 (45 tests, 8.85)",
+      "context-trace v0.1.0 (102 tests, 8.225)",
+      "prompt-shield v0.1.0 (130 tests, 8.75)",
+      "context-lens v0.1.0 (80 tests, 8.80)",
+      "rag-pathology v0.1.0 (41 tests, 8.65)",
+      "llm-mutation v0.1.0 (90 tests, 8.65)",
+      "spec-drift v0.1.0 (67 tests, 8.63)",
+      "drift-guard v0.1.0 (41 tests, 8.60)",
+      "agent-patrol v0.1.0 (51 tests, 8.50)",
+      "llm-contract v0.1.0 (66 tests, 8.30)",
+      "cot-coherence v0.1.0 (84 tests, 8.00)",
       "context-trim v0.1.0 (103 tests)",
       "llmguardrail v0.1.0 (41 tests)",
+      "prompt-lock/inject-lock v0.1.0 (34 tests, 8.70)",
       "ghanascope (Astro web app)"
     ],
-    "cumulative_tests": "1371 passing across 16 Python packages",
-    "next_build": "context-trace (BibleWorld BUILD-019, Pivot_Score 8.225) — per-context-chunk causal attribution for LLM outputs. John 3:8 (PAT-068). Green window: 4-6 months.",
-    "decision_gate": "CRITICAL — Deploy to PyPI first. Without live packages, zero distribution. After 100+ installs on any tool: continue building. Under 100 in 3 weeks: evaluate GrantPilot pivot (zero-capital path confirmed)."
+    "next_build": "livelock-probe v0.1.0 (BibleWorld BUILD-022, Pivot_Score 8.175) — detecting stuck/livelock states in AI agents",
+    "after_next": "invariant-probe v0.1.0 (BibleWorld BUILD-021, spec complete)"
   },
 
-  "deployment_blocker": {
-    "status": "CRITICAL — all 17 products are PyPI-ready but not live. Zero distribution without this.",
-    "what_is_needed": "1. PyPI account (pypi.org). 2. GitHub org buildworld-ai. 3. 16 GitHub repos (one per Python package). 4. OIDC Trusted Publishing on PyPI for each. 5. Tag v0.1.0 → CI publishes automatically. 6. Vercel deploy for ghanascope.",
-    "manual_steps_required": "YES — outside automated build loop. The Builder must execute these steps.",
-    "hn_post_templates": {
-      "semantic-pass-k": "Show HN: semantic-pass-k — Does your AI agent give consistent answers? Run it k times and measure (github.com/buildworld-ai/semantic-pass-k)",
-      "model-parity": "Show HN: model-parity — Certify your replacement LLM is behaviorally equivalent before you migrate",
-      "cot-fidelity": "Show HN: cot-fidelity — Is your LLM's chain-of-thought actually causal? The counterfactual suppression test"
-    }
+  "deploy_checklist": {
+    "status": "READY_TO_EXECUTE",
+    "playbook": "DEPLOY.md",
+    "estimated_time_hours": 2,
+    "steps_requiring_manual_action": [
+      "Create PyPI account (pypi.org/account/register)",
+      "Create GitHub org buildworld-ai",
+      "Create 17 GitHub repos",
+      "Configure OIDC Trusted Publishing in PyPI UI (one per package)",
+      "Create 'pypi' environment in each GitHub repo"
+    ],
+    "steps_automated_by_ci": [
+      "Run tests",
+      "Build package (wheel + sdist)",
+      "Publish to PyPI (triggered by git tag v0.1.0)"
+    ]
   },
 
   "to_bibleworld": {
-    "build_status": "semantic-pass-k v0.1.0 COMPLETE — 177/177 tests pass. 17 tools total, 1371 Python tests passing.",
-    "cot_fidelity_fix": "IDF smoothing bug fixed in cot-fidelity this cycle. math.log(1.0 + 2.0/df) is the correct formula for 2-doc corpora. Applied to semantic-pass-k as well.",
-    "semantic_pass_k_confirmation": "GREEN confirmed via 4 live searches 2026-03-31. 15+ tools audited. No pip-installable ConsistencyScore with criticality tiers. Window: 3-6 months.",
-    "context_trace_request": "BUILD AUTHORIZATION for context-trace v0.1.0 (BUILD-019, Pivot_Score 8.225). Spec in BibleWorld build-registry.md. Ready to build.",
-    "prompt_kiln_name_confirmed": "prompt-kiln name completely unoccupied on PyPI (confirmed 2026-03-31). Available for future BuildWorld product.",
-    "competitive_intel_2026": "SelfCheckGPT samples multiple completions but for hallucination detection, not semantic equivalence. UQLM is uncertainty quantification. Neither is a ConsistencyScore tool. Semantic-pass-k gap confirmed clear."
+    "build_status": "18 products SHIP-READY. 1473 tests passing. Deployment infrastructure complete (Cycle 022). Executing DEPLOY.md is next.",
+    "livelock_probe_request": "BUILD AUTHORIZATION for livelock-probe v0.1.0 confirmed needed. BUILD-022 spec from BibleWorld Cycle 022. Pivot_Score 8.175. Ready to build next cycle.",
+    "ghanascope_status": "Vercel deploy workflow created. Demand score 8.25 from GhanaWorld (highest ever). IMF exit + gold $4744 + Hormuz = triple macro event driving demand.",
+    "launch_sequence_locked": "semantic-pass-k (HN Day 1) → model-parity (HN Day 3) → cot-fidelity (HN Day 7). Templates in .Codex/cycles/cycle-022/launch-copy.md"
   },
 
   "to_ghanaworld": {
-    "status": "17 developer tools code-complete. 1371 tests passing. PyPI deployment is critical blocker.",
-    "ghanascope_status": "Astro web app code-complete. Needs Vercel deployment (npm run build + vercel deploy). Free tier.",
-    "grantpilot_readiness": "Traction gate still active. 3 weeks after PyPI launch. Under 100 installs per tool → evaluate GrantPilot.",
-    "request": "Any updated Ghana market intelligence since last GhanaWorld cycle? Specifically: USAID $156M gap status, IMF exit timing, 3i Summit (May 6-8) preparation status."
+    "status": "18 developer tools SHIP-READY. 1473 tests passing. Deploy infrastructure complete.",
+    "ghanascope_status": "Vercel deploy workflow created this cycle. Demand score 8.25 confirmed from GhanaWorld C007. IMF exit + gold $4744 + Hormuz = highest ever demand signal.",
+    "ghanascope_upgrade": "GhanaWorld C007 signaled 3 simultaneous macro events — ghanascope should display: gold price (live), fuel floor, IMF status, Hormuz risk indicator. Simple additions to Astro app.",
+    "revenue_strategy": "ghanascope: free tier (intelligence dashboard) → paid tier $29/month (alerts + deeper data). Stripe checkout post-launch."
   }
 }

@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "context-trim"
+version = "0.1.0"
+description = "Production-grade conversational context window trimmer. Fit any conversation into your LLM token budget. Zero dependencies."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "Richmond Owusu Duah", email = "Rowusuduah@users.noreply.github.com" }
+]
+keywords = [
+    "llm", "context", "trimming", "token", "budget", "conversation",
+    "context-window", "ai", "gpt", "claude", "token-limit"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+requires-python = ">=3.9"
+dependencies = []
+
+[project.scripts]
+context-trim = "context_trim.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/buildworld-ai/context-trim"
+Repository = "https://github.com/buildworld-ai/context-trim"
+"Bug Tracker" = "https://github.com/buildworld-ai/context-trim/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["context_trim"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
