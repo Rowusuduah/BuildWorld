@@ -1,0 +1,35 @@
+name: Publish pressure-gauge to PyPI
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      id-token: write  # OIDC Trusted Publishing
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install hatchling
+        run: pip install hatchling
+
+      - name: Run tests
+        run: |
+          pip install pytest
+          pytest tests/ -q
+
+      - name: Build package
+        run: python -m hatchling build
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1

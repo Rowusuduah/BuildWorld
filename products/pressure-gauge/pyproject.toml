@@ -1,0 +1,57 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pressure-gauge"
+version = "0.1.0"
+description = "Detect LLM behavioral drift caused by context window fill level. The first pip-installable ContextPressureScore for AI agents."
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "BuildWorld", email = "build@buildworld.ai"}]
+keywords = [
+    "llm", "ai", "agents", "context", "context-window", "drift",
+    "context-anxiety", "behavioral-testing", "evaluation", "ci",
+    "pressure", "reliability", "testing", "anthropic", "langchain",
+    "crewai", "autogen", "openai",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+neural = ["sentence-transformers>=3.0"]
+cli = ["click>=8.0", "rich>=13.0"]
+full = ["sentence-transformers>=3.0", "click>=8.0", "rich>=13.0"]
+dev = [
+    "pytest>=7.0",
+    "click>=8.0",
+    "rich>=13.0",
+]
+
+[project.scripts]
+pgauge = "pressure_gauge.cli:cli"
+
+[project.entry-points."pytest11"]
+pressure_gauge = "pressure_gauge.pytest_plugin"
+
+[project.urls]
+Homepage = "https://github.com/buildworld-ai/pressure-gauge"
+Repository = "https://github.com/buildworld-ai/pressure-gauge"
+Issues = "https://github.com/buildworld-ai/pressure-gauge/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["pressure_gauge"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,7 +1,7 @@
 # BuildWorld Product Registry
 ## Every Product — From Idea to Revenue
 
-**Last Updated:** Cycle 022 (2026-04-01)
+**Last Updated:** Cycle 024 (2026-04-08)
 
 ---
 
@@ -124,9 +124,11 @@
 | cot-coherence | 84/84 | 8.00 | READY (pending deploy) |
 | context-trim | 103/103 | — | READY (pending deploy) |
 | llmguardrail | 41/41 | — | READY (pending deploy) |
+| livelock-probe | 113/113 | 8.175 | READY (pending deploy) |
+| pressure-gauge | 184/184 | 8.65 | READY (pending deploy) |
 | ghanascope | Astro | — | VERCEL (pending deploy) |
 
-**Total Python tests: 1,473 passing**
+**Total Python tests: 1,770 passing**
 
 ---
 
@@ -139,7 +141,7 @@
 | ghanascope | CODE_COMPLETE | $0 | 0 | Vercel pending |
 
 **Total MRR:** $0
-**Total products shipped:** 17 (code-complete)
+**Total products shipped:** 20 (code-complete)
 **Total products generating revenue:** 0
-**Cycle 022 status:** 18 GitHub Actions OIDC workflows created. DEPLOY.md playbook complete. Launch copy for 4 flagship products ready. Execute DEPLOY.md (~2 hours) to go live.
-**Next BUILD:** livelock-probe v0.1.0 (BibleWorld BUILD-022, Pivot_Score 8.175) — AI agent stuck-state detector, LivelockScore metric
+**Cycle 024 status:** 20 Python packages + 1 Astro web app code-complete. 20 GitHub Actions OIDC workflows created. DEPLOY.md playbook complete. Execute DEPLOY.md (~2 hours) to go live.
+**Next BUILD:** covenant-keeper v0.1.0 (BibleWorld BUILD-024, Pivot_Score 8.30) — defense-focused adversarial testing for AI agent behavioral commitments. CovenantFidelity metric.
